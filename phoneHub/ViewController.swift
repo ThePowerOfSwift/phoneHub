@@ -16,8 +16,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	
 	var i :Int = 0
 	var ary:[String] = []
-	var aryLabel:String!
+	var aryLabel:String = ""
 	var phoneDict = [String:String]()
+	
     var contact: ABMultiValueRef!
     var phone: ABMultiValueRef!
 	var person: Contacts!
@@ -36,7 +37,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
     }
-
+	override func viewDidAppear(animated:Bool){
+		self.tableView.reloadData()
+	}
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
 		textField.resignFirstResponder()
 		return true
@@ -130,7 +133,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             actionSheetController.addAction(white)
             //			//We need to provide a popover sourceView when using it on iPad
             //			actionSheetController.popoverPresentationController?.sourceView = tableView as UITableView;
-            
+			
             //Present the AlertController
             self.presentViewController(actionSheetController, animated: true, completion: nil)
         })
@@ -170,7 +173,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
 //Start AB
     func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
-		
+
 		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
 		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
         var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
@@ -178,7 +181,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		ary = ABMultiValueCopyArrayOfAllValues(phones).takeRetainedValue() as [String]
 		
 		//load phone labels into array
-		for i=0; i<ary.count; i++ {
+		for i=0; i < ary.count; i++ {
 			aryLabel = String(ABMultiValueCopyLabelAtIndex(phones,i).takeRetainedValue())
 			aryLabel = aryLabel.substringWithRange(Range<String.Index>(start: advance(aryLabel.startIndex, 4), end: advance(aryLabel.endIndex, -4)))
 			labelAry.append(aryLabel)
@@ -188,7 +191,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		for i=0; i<ary.count; i++ {
 			phoneDict[labelAry[i]] = ary[i]
 		}
-		
+//		println(contact)
+//		println(phoneDict)
 		//phone var Deprecated
 		phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
 
