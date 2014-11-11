@@ -13,7 +13,11 @@ import CoreData
 class ViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
-    var ary: NSArray!
+	
+	var i :Int = 0
+	var ary:[String] = []
+	var aryLabel:String!
+	var phoneDict = [String:String]()
     var contact: ABMultiValueRef!
     var phone: ABMultiValueRef!
 	var person: Contacts!
@@ -53,8 +57,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             let destVC: NumPickViewController = segue.destinationViewController as NumPickViewController
             destVC.person = self.person
             destVC.contact = self.contact
-            destVC.phone = self.phone
-			destVC.ary = self.ary
+
+			destVC.phoneDict = self.phoneDict
+			
+			
         }
     }
 
@@ -164,12 +170,29 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
 //Start AB
     func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
-        contact = ABRecordCopyCompositeName(person).takeRetainedValue()
+		
+		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
+		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
         var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
-        ary = ABMultiValueCopyArrayOfAllValues(phones).takeUnretainedValue() as NSArray
-        phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
-        
-        let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+		//load phone numbers into array
+		ary = ABMultiValueCopyArrayOfAllValues(phones).takeRetainedValue() as [String]
+		
+		//load phone labels into array
+		for i=0; i<ary.count; i++ {
+			aryLabel = String(ABMultiValueCopyLabelAtIndex(phones,i).takeRetainedValue())
+			aryLabel = aryLabel.substringWithRange(Range<String.Index>(start: advance(aryLabel.startIndex, 4), end: advance(aryLabel.endIndex, -4)))
+			labelAry.append(aryLabel)
+		}
+
+		//merge labels and nums into dictionary
+		for i=0; i<ary.count; i++ {
+			phoneDict[labelAry[i]] = ary[i]
+		}
+		
+		//phone var Deprecated
+		phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
+
+		let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
         var thePerson = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext) as Contacts
         thePerson.name = contact as String

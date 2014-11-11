@@ -17,8 +17,9 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
     var contact: ABMultiValueRef!
     var phone: ABMultiValueRef!
     var person: Contacts!
-	var ary: NSArray!
+//	var ary: NSArray!
 	var numbers: UIView!
+	var phoneDict = [String:String]()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
 	var tblView =  UIView(frame: CGRectZero)
@@ -32,12 +33,14 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	}
 
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return ary.count
+		return phoneDict.count
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		var cell: NumberCell = tableView.dequeueReusableCellWithIdentifier("phoneNum") as NumberCell
-		cell.numLabel.text = ary.objectAtIndex(indexPath.row) as NSString
+		cell.typeLabel.text = Array(phoneDict.keys)[indexPath.row]
+		cell.numLabel.text = Array(phoneDict.values)[indexPath.row]
+
 		return cell
 	}
 	
@@ -59,10 +62,8 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
     func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
         contact = ABRecordCopyCompositeName(person).takeRetainedValue()
         var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
-        ary = ABMultiValueCopyArrayOfAllValues(phones).takeUnretainedValue() as NSArray
+//        ary = ABMultiValueCopyArrayOfAllValues(phones).takeUnretainedValue() as NSArray
         phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
-//        println("asdf: \(contact)")
-//        println("asdf: \(phones)")
 
         let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
