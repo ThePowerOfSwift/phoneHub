@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */; };
 		F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceLemonadeViewController.swift; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				F6C02BD01A0926790027567B /* NumPickViewController.swift */,
 				F6C02BAC1A07179E0027567B /* Main.storyboard */,
 				F6C02BCA1A0723800027567B /* ContactCell.swift */,
+				F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */,
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
 				F6C02BB11A07179E0027567B /* LaunchScreen.xib */,
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
@@ -237,6 +240,7 @@
 				F6C02BC91A071CD20027567B /* Contacts.swift in Sources */,
 				F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
+				F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */,
 				F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */,
 				F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */,
 				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,

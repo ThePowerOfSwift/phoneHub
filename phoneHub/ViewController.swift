@@ -27,16 +27,23 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		textField.delegate = self
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	func textFieldShouldReturn(textField: UITextField!) -> Bool {
+		textField.resignFirstResponder()
+		return true
+		// called when 'return' key pressed. return NO to ignore.
+	}
+
+	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+		self.view.endEditing(true)
+	}
+
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "postCall" {
             let destVC: PostCallViewController = segue.destinationViewController as PostCallViewController
         } else if segue.identifier == "showEdit" {
