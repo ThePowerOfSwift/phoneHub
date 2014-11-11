@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */; };
+		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
+		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
+		F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BAA1A07179E0027567B /* ViewController.swift */; };
+		F6C02BAE1A07179E0027567B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C02BAC1A07179E0027567B /* Main.storyboard */; };
+		F6C02BB01A07179E0027567B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C02BAF1A07179E0027567B /* Images.xcassets */; };
+		F6C02BB31A07179E0027567B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C02BB11A07179E0027567B /* LaunchScreen.xib */; };
+		F6C02BBF1A07179E0027567B /* phoneHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BBE1A07179E0027567B /* phoneHubTests.swift */; };
+		F6C02BC91A071CD20027567B /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BC81A071CD20027567B /* Contacts.swift */; };
+		F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCA1A0723800027567B /* ContactCell.swift */; };
+		F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCC1A0726D60027567B /* EditViewController.swift */; };
+		F6C02BCF1A0727170027567B /* PostCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCE1A0727170027567B /* PostCallViewController.swift */; };
+		F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BD01A0926790027567B /* NumPickViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F6C02BB91A07179E0027567B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6C02B981A07179E0027567B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6C02B9F1A07179E0027567B;
+			remoteInfo = phoneHub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceLemonadeViewController.swift; sourceTree = "<group>"; };
+		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C02BA51A07179E0027567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F6C02BA81A07179E0027567B /* phoneHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = phoneHub.xcdatamodel; sourceTree = "<group>"; };
+		F6C02BAA1A07179E0027567B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6C02BAD1A07179E0027567B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6C02BAF1A07179E0027567B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F6C02BB21A07179E0027567B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F6C02BB81A07179E0027567B /* phoneHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phoneHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C02BBD1A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C02BBE1A07179E0027567B /* phoneHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneHubTests.swift; sourceTree = "<group>"; };
+		F6C02BC81A071CD20027567B /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		F6C02BCA1A0723800027567B /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		F6C02BCC1A0726D60027567B /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		F6C02BCE1A0727170027567B /* PostCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCallViewController.swift; sourceTree = "<group>"; };
+		F6C02BD01A0926790027567B /* NumPickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPickViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6C02B9D1A07179E0027567B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6C02BB51A07179E0027567B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6C02B971A07179E0027567B = {
+			isa = PBXGroup;
+			children = (
+				F6C02BA21A07179E0027567B /* phoneHub */,
+				F6C02BBB1A07179E0027567B /* phoneHubTests */,
+				F6C02BA11A07179E0027567B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6C02BA11A07179E0027567B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6C02BA01A07179E0027567B /* phoneHub.app */,
+				F6C02BB81A07179E0027567B /* phoneHubTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6C02BA21A07179E0027567B /* phoneHub */ = {
+			isa = PBXGroup;
+			children = (
+				F6C02BA51A07179E0027567B /* AppDelegate.swift */,
+				F6C02BAA1A07179E0027567B /* ViewController.swift */,
+				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
+				F6C02BCE1A0727170027567B /* PostCallViewController.swift */,
+				F6C02BD01A0926790027567B /* NumPickViewController.swift */,
+				F6C02BAC1A07179E0027567B /* Main.storyboard */,
+				F6C02BCA1A0723800027567B /* ContactCell.swift */,
+				F6C02BAF1A07179E0027567B /* Images.xcassets */,
+				F6C02BB11A07179E0027567B /* LaunchScreen.xib */,
+				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
+				F6C02BC81A071CD20027567B /* Contacts.swift */,
+				F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */,
+				F6C02BA31A07179E0027567B /* Supporting Files */,
+			);
+			path = phoneHub;
+			sourceTree = "<group>";
+		};
+		F6C02BA31A07179E0027567B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6C02BA41A07179E0027567B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6C02BBB1A07179E0027567B /* phoneHubTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6C02BBE1A07179E0027567B /* phoneHubTests.swift */,
+				F6C02BBC1A07179E0027567B /* Supporting Files */,
+			);
+			path = phoneHubTests;
+			sourceTree = "<group>";
+		};
+		F6C02BBC1A07179E0027567B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6C02BBD1A07179E0027567B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6C02B9F1A07179E0027567B /* phoneHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6C02BC21A07179E0027567B /* Build configuration list for PBXNativeTarget "phoneHub" */;
+			buildPhases = (
+				F6C02B9C1A07179E0027567B /* Sources */,
+				F6C02B9D1A07179E0027567B /* Frameworks */,
+				F6C02B9E1A07179E0027567B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = phoneHub;
+			productName = phoneHub;
+			productReference = F6C02BA01A07179E0027567B /* phoneHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F6C02BB71A07179E0027567B /* phoneHubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6C02BC51A07179E0027567B /* Build configuration list for PBXNativeTarget "phoneHubTests" */;
+			buildPhases = (
+				F6C02BB41A07179E0027567B /* Sources */,
+				F6C02BB51A07179E0027567B /* Frameworks */,
+				F6C02BB61A07179E0027567B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6C02BBA1A07179E0027567B /* PBXTargetDependency */,
+			);
+			name = phoneHubTests;
+			productName = phoneHubTests;
+			productReference = F6C02BB81A07179E0027567B /* phoneHubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6C02B981A07179E0027567B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Stanley Chiang";
+				TargetAttributes = {
+					F6C02B9F1A07179E0027567B = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					F6C02BB71A07179E0027567B = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = F6C02B9F1A07179E0027567B;
+					};
+				};
+			};
+			buildConfigurationList = F6C02B9B1A07179E0027567B /* Build configuration list for PBXProject "phoneHub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6C02B971A07179E0027567B;
+			productRefGroup = F6C02BA11A07179E0027567B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6C02B9F1A07179E0027567B /* phoneHub */,
+				F6C02BB71A07179E0027567B /* phoneHubTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6C02B9E1A07179E0027567B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6C02BAE1A07179E0027567B /* Main.storyboard in Resources */,
+				F6C02BB31A07179E0027567B /* LaunchScreen.xib in Resources */,
+				F6C02BB01A07179E0027567B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6C02BB61A07179E0027567B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6C02B9C1A07179E0027567B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */,
+				F6C02BC91A071CD20027567B /* Contacts.swift in Sources */,
+				F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */,
+				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
+				F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */,
+				F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */,
+				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,
+				F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */,
+				F6C02BCF1A0727170027567B /* PostCallViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6C02BB41A07179E0027567B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6C02BBF1A07179E0027567B /* phoneHubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6C02BBA1A07179E0027567B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6C02B9F1A07179E0027567B /* phoneHub */;
+			targetProxy = F6C02BB91A07179E0027567B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F6C02BAC1A07179E0027567B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6C02BAD1A07179E0027567B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6C02BB11A07179E0027567B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6C02BB21A07179E0027567B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F6C02BC01A07179E0027567B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6C02BC11A07179E0027567B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6C02BC31A07179E0027567B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = phoneHub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F6C02BC41A07179E0027567B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = phoneHub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F6C02BC61A07179E0027567B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = phoneHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phoneHub.app/phoneHub";
+			};
+			name = Debug;
+		};
+		F6C02BC71A07179E0027567B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = phoneHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phoneHub.app/phoneHub";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6C02B9B1A07179E0027567B /* Build configuration list for PBXProject "phoneHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C02BC01A07179E0027567B /* Debug */,
+				F6C02BC11A07179E0027567B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6C02BC21A07179E0027567B /* Build configuration list for PBXNativeTarget "phoneHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C02BC31A07179E0027567B /* Debug */,
+				F6C02BC41A07179E0027567B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6C02BC51A07179E0027567B /* Build configuration list for PBXNativeTarget "phoneHubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C02BC61A07179E0027567B /* Debug */,
+				F6C02BC71A07179E0027567B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F6C02BA81A07179E0027567B /* phoneHub.xcdatamodel */,
+			);
+			currentVersion = F6C02BA81A07179E0027567B /* phoneHub.xcdatamodel */;
+			path = phoneHub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F6C02B981A07179E0027567B /* Project object */;
+}
