@@ -109,21 +109,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjn-5P-Nm2">
-                                <rect key="frame" x="29" y="135" width="70" height="65"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjn-5P-Nm2"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0Q-BB-tJe">
-                                <rect key="frame" x="146" y="170" width="97" height="30"/>
+                                <rect key="frame" x="146" y="170" width="163" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D09-ob-eKv">
-                                <rect key="frame" x="147" y="236" width="97" height="30"/>
+                                <rect key="frame" x="147" y="236" width="157" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkC-sP-dGY">
-                                <rect key="frame" x="29" y="313" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-XQ-rFh">
+                                <rect key="frame" x="39" y="311" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -146,6 +149,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="memoArea" destination="eqc-XQ-rFh" id="wX5-bI-UMb"/>
+                        <outlet property="nameField" destination="v0Q-BB-tJe" id="PjQ-pM-uJ7"/>
+                        <outlet property="numField" destination="D09-ob-eKv" id="P4H-rU-q4s"/>
+                        <outlet property="phoneLabel" destination="ZOE-Uz-R2H" id="hgt-Wd-jyK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-he-pWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -403,6 +412,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mpV-md-IWB"/>
-        <segue reference="8lP-r5-q5I"/>
+        <segue reference="akY-aI-hd9"/>
     </inferredMetricsTieBreakers>
 </document>

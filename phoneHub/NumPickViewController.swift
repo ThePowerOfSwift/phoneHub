@@ -19,7 +19,8 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
     var phone: ABMultiValueRef!
     var person: Contacts!
 	var numbers: UIView!
-
+	var selectedType: String = ""
+	var selectedNumber: String = ""
 	var i :Int = 0
 	var ary:[String] = []
 	var aryLabel:String! = ""
@@ -45,16 +46,25 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		var cell: NumberCell = tableView.dequeueReusableCellWithIdentifier("phoneNum") as NumberCell
 		cell.typeLabel.text = Array(phoneDict.keys)[indexPath.row]
 		cell.numLabel.text = Array(phoneDict.values)[indexPath.row]
-
 		return cell
+	}
+	
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		selectedType = Array(phoneDict.keys)[indexPath.row]
+		selectedNumber = Array(phoneDict.values)[indexPath.row]
+
+		performSegueWithIdentifier("numberSelected", sender: self)
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "numberSelected" {
             let destVC: EditViewController = segue.destinationViewController as EditViewController
+			
+			destVC.nameF = nameLabel.text!
+			destVC.phoneL = selectedType
+			destVC.numF = selectedNumber
         }
     }
-	
 	
 //Start AB
     
