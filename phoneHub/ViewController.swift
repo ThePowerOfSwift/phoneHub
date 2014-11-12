@@ -19,10 +19,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var aryLabel:String = ""
 	var phoneDict = [String:String]()
 	
+	var image: UIImage!
     var contact: ABMultiValueRef!
-//    var phone: ABMultiValueRef!
-//	var person: Contacts!
-
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
     
@@ -55,10 +53,11 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             let destVC: EditViewController = segue.destinationViewController as EditViewController
         } else if segue.identifier == "showNumPicker" {
             let destVC: NumPickViewController = segue.destinationViewController as NumPickViewController
-//            destVC.person = self.person
             destVC.contact = self.contact
 			destVC.phoneDict = self.phoneDict
+			destVC.img = self.image
 	    }
+		phoneDict.removeAll()
     }
 
 //Start Table
@@ -74,10 +73,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let theContact = fetchedResultsController.objectAtIndexPath(indexPath) as Contacts
-//		println(theContact)
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
+		cell.pic.image = image
         return cell
     }
 //End Table
@@ -168,8 +167,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
 //Start AB
     func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
-
+		
+		
 		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
+		let imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail).takeRetainedValue()
+
+		image = UIImage(data:imgData)
+
 		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
         var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
 		//load phone numbers into array
@@ -186,17 +190,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		for i=0; i<ary.count; i++ {
 			phoneDict[labelAry[i]] = ary[i]
 		}
-//		println(contact)
-//		println(phoneDict)
-		//phone var Deprecated
-//		phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
-//
-//		let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-//        let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
-//        var thePerson = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext) as Contacts
-//        thePerson.name = contact as String
-//        thePerson.phone = phone as String
-//        self.person = thePerson
         performSegueWithIdentifier("showNumPicker", sender: self)
     }
     
@@ -219,7 +212,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         let fetchRequest = NSFetchRequest(entityName: "Contacts")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-//        fetchRequest.predicate = NSPredicate(format: "hasCalled = false")
         return fetchRequest
     }
     

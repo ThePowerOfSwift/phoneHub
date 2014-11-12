@@ -178,9 +178,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bib-sD-gUk">
-                                <rect key="frame" x="25" y="101" width="70" height="65"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nwL-Ir-cRh">
                                 <rect key="frame" x="82" y="219" width="160" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,6 +213,9 @@
                                     <outlet property="delegate" destination="2gK-5H-yCh" id="QQR-N5-dEY"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bib-sD-gUk">
+                                <rect key="frame" x="25" y="101" width="70" height="65"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -229,6 +229,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="nameLabel" destination="xGq-Yh-kcJ" id="jTY-te-amV"/>
+                        <outlet property="pic" destination="bib-sD-gUk" id="5Z8-53-tmM"/>
                         <outlet property="tableView" destination="nwL-Ir-cRh" id="KyL-tL-jeC"/>
                         <segue destination="gu5-Ks-6eB" kind="show" identifier="numberSelected" id="8lP-r5-q5I"/>
                     </connections>
@@ -412,6 +413,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mpV-md-IWB"/>
-        <segue reference="akY-aI-hd9"/>
+        <segue reference="8lP-r5-q5I"/>
     </inferredMetricsTieBreakers>
 </document>

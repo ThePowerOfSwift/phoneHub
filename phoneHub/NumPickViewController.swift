@@ -14,10 +14,10 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 
 	@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var pic: UIImageView!
 	
+	var img: UIImage!
     var contact: ABMultiValueRef!
-    var phone: ABMultiValueRef!
-    var person: Contacts!
 	var numbers: UIView!
 	var selectedType: String = ""
 	var selectedNumber: String = ""
@@ -35,6 +35,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		nameLabel.text = contact as NSString
 		tableView.tableFooterView = tblView
 		tableView.backgroundColor = UIColor.clearColor()
+		pic.image = img
 		self.tableView.reloadData()
 	}
 
@@ -63,6 +64,11 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 			destVC.nameF = nameLabel.text!
 			destVC.phoneL = selectedType
 			destVC.numF = selectedNumber
+			
+			nameLabel.text = ""
+			selectedType = ""
+			selectedNumber = ""
+			phoneDict.removeAll()
         }
     }
 	
@@ -72,7 +78,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		//going back clears current data
 		ary = []
 		aryLabel = ""
-		phoneDict = [String:String]()
+		phoneDict.removeAll()
 		
 		let picker = ABPeoplePickerNavigationController()
         picker.peoplePickerDelegate = self
@@ -98,17 +104,6 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		for i=0; i<ary.count; i++ {
 			phoneDict[labelAry[i]] = ary[i]
 		}
-		
-		//phone var Deprecated
-		phone = ABMultiValueCopyValueAtIndex(phones, 0 as CFIndex).takeRetainedValue()
-		
-		let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-		let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
-		var thePerson = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext) as Contacts
-		thePerson.name = contact as String
-		thePerson.phone = phone as String
-		self.person = thePerson
-//		performSegueWithIdentifier("showNumPicker", sender: self)
 	}
 	
 	func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, shouldContinueAfterSelectingPerson person: ABRecordRef!) -> Bool {
@@ -121,6 +116,6 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
 		peoplePicker.dismissViewControllerAnimated(true, completion: nil)
 	}
-	//End AB
+//End AB
 
 }

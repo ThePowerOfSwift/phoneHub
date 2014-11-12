@@ -52,6 +52,9 @@ class EditViewController: UIViewController {
 		newEntry.memo = memoArea.text
 
 		appDelegate.saveContext()
+		
+		
+		
 		self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
