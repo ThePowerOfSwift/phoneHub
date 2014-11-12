@@ -16,7 +16,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var pic: UIImageView!
 	
-	var img: UIImage!
+	var image: UIImage!
     var contact: ABMultiValueRef!
 	var numbers: UIView!
 	var selectedType: String = ""
@@ -35,7 +35,11 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		nameLabel.text = contact as NSString
 		tableView.tableFooterView = tblView
 		tableView.backgroundColor = UIColor.clearColor()
-		pic.image = img
+		if image != nil {
+			pic.image = image
+		} else {
+			println("nillio")
+		}
 		self.tableView.reloadData()
 	}
 
@@ -64,7 +68,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 			destVC.nameF = nameLabel.text!
 			destVC.phoneL = selectedType
 			destVC.numF = selectedNumber
-			
+			destVC.image = image
 			nameLabel.text = ""
 			selectedType = ""
 			selectedNumber = ""
@@ -88,6 +92,12 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
 
 		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
+		let imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)?.takeRetainedValue()
+		if imgData != nil {
+			image = UIImage(data:imgData!)
+		} else {
+			image = UIImage(named:"152 - iPad")
+		}
 		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
 		var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
 		//load phone numbers into array

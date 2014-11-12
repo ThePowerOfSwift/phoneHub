@@ -13,11 +13,12 @@ class EditViewController: UIViewController {
 	var nameF:String = ""
 	var phoneL:String = ""
 	var numF:String = ""
-	
+	var image: UIImage!
 	@IBOutlet weak var nameField: UITextField!
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var numField: UITextField!
 	
+	@IBOutlet weak var userPic: UIImageView!
 	@IBOutlet weak var memoArea: UITextView!
 	let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
 	
@@ -29,6 +30,7 @@ class EditViewController: UIViewController {
 		phoneLabel.text = phoneL
 		numField.text = numF
 		memoArea.text = "asfsafd"
+		userPic.image = image
     }
 
     override func didReceiveMemoryWarning() {

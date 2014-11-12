@@ -19,19 +19,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf3-2d-PC8">
-                                            <rect key="frame" x="94" y="8" width="64" height="21"/>
+                                            <rect key="frame" x="94" y="8" width="202" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="memo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GK-ap-CeW">
-                                            <rect key="frame" x="139" y="22" width="60" height="21"/>
+                                            <rect key="frame" x="139" y="22" width="157" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fml-ss-vfs">
-                                            <rect key="frame" x="22" y="0.0" width="43" height="43"/>
+                                            <rect key="frame" x="20" y="0.0" width="44" height="43"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -109,7 +109,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjn-5P-Nm2"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0Q-BB-tJe">
                                 <rect key="frame" x="146" y="170" width="163" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -120,13 +119,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkC-sP-dGY">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-XQ-rFh">
-                                <rect key="frame" x="39" y="311" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-HO-fAg">
+                                <rect key="frame" x="16" y="154" width="115" height="101"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-dm-Zzw">
+                                <rect key="frame" x="16" y="330" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -150,10 +147,11 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="memoArea" destination="eqc-XQ-rFh" id="wX5-bI-UMb"/>
+                        <outlet property="memoArea" destination="ZKl-dm-Zzw" id="U8b-Re-qA1"/>
                         <outlet property="nameField" destination="v0Q-BB-tJe" id="PjQ-pM-uJ7"/>
                         <outlet property="numField" destination="D09-ob-eKv" id="P4H-rU-q4s"/>
                         <outlet property="phoneLabel" destination="ZOE-Uz-R2H" id="hgt-Wd-jyK"/>
+                        <outlet property="userPic" destination="2cx-HO-fAg" id="k9r-KL-JPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-he-pWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -413,6 +411,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mpV-md-IWB"/>
-        <segue reference="8lP-r5-q5I"/>
+        <segue reference="akY-aI-hd9"/>
     </inferredMetricsTieBreakers>
 </document>

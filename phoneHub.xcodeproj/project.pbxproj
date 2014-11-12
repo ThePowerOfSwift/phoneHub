@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */; };
+		F6B5768C1A132D170022A835 /* 152 - iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B5768B1A132D170022A835 /* 152 - iPad.png */; };
+		F6B576941A133AC70022A835 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B576931A133AC70022A835 /* Contacts.swift */; };
 		F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
@@ -16,7 +18,6 @@
 		F6C02BB01A07179E0027567B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C02BAF1A07179E0027567B /* Images.xcassets */; };
 		F6C02BB31A07179E0027567B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C02BB11A07179E0027567B /* LaunchScreen.xib */; };
 		F6C02BBF1A07179E0027567B /* phoneHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BBE1A07179E0027567B /* phoneHubTests.swift */; };
-		F6C02BC91A071CD20027567B /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BC81A071CD20027567B /* Contacts.swift */; };
 		F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCA1A0723800027567B /* ContactCell.swift */; };
 		F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCC1A0726D60027567B /* EditViewController.swift */; };
 		F6C02BCF1A0727170027567B /* PostCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCE1A0727170027567B /* PostCallViewController.swift */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
+		F6B5768B1A132D170022A835 /* 152 - iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "152 - iPad.png"; sourceTree = "<group>"; };
+		F6B576931A133AC70022A835 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceLemonadeViewController.swift; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		F6C02BB81A07179E0027567B /* phoneHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phoneHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BBD1A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C02BBE1A07179E0027567B /* phoneHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phoneHubTests.swift; sourceTree = "<group>"; };
-		F6C02BC81A071CD20027567B /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		F6C02BCA1A0723800027567B /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		F6C02BCC1A0726D60027567B /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		F6C02BCE1A0727170027567B /* PostCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCallViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
 				F6C02BB11A07179E0027567B /* LaunchScreen.xib */,
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
-				F6C02BC81A071CD20027567B /* Contacts.swift */,
+				F6B576931A133AC70022A835 /* Contacts.swift */,
 				F6BC9EF51A107B1000C9F500 /* ReferenceLemonadeViewController.swift */,
 				F6C02BA31A07179E0027567B /* Supporting Files */,
 			);
@@ -114,6 +116,7 @@
 		F6C02BA31A07179E0027567B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F6B5768B1A132D170022A835 /* 152 - iPad.png */,
 				F6C02BA41A07179E0027567B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B5768C1A132D170022A835 /* 152 - iPad.png in Resources */,
 				F6C02BAE1A07179E0027567B /* Main.storyboard in Resources */,
 				F6C02BB31A07179E0027567B /* LaunchScreen.xib in Resources */,
 				F6C02BB01A07179E0027567B /* Images.xcassets in Resources */,
@@ -237,10 +241,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */,
-				F6C02BC91A071CD20027567B /* Contacts.swift in Sources */,
 				F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */,
+				F6B576941A133AC70022A835 /* Contacts.swift in Sources */,
 				F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */,
 				F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */,
 				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,

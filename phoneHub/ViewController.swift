@@ -55,9 +55,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             let destVC: NumPickViewController = segue.destinationViewController as NumPickViewController
             destVC.contact = self.contact
 			destVC.phoneDict = self.phoneDict
-			destVC.img = self.image
+			destVC.image = self.image
 	    }
 		phoneDict.removeAll()
+		
     }
 
 //Start Table
@@ -76,7 +77,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
-		cell.pic.image = image
+		cell.pic.image = theContact
         return cell
     }
 //End Table
@@ -170,10 +171,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		
 		
 		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
-		let imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail).takeRetainedValue()
-
-		image = UIImage(data:imgData)
-
+		
+		var imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)?.takeRetainedValue()
+		if imgData != nil {
+		image = UIImage(data:imgData!)
+		} else {
+			image = UIImage(named:"152 - iPad")
+		}
 		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
         var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
 		//load phone numbers into array
