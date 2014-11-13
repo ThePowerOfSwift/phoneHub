@@ -48,6 +48,11 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "postCall" {
             let destVC: PostCallViewController = segue.destinationViewController as PostCallViewController
+			let indexPath = tableView.indexPathForSelectedRow()
+			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
+			destVC.nameL = cell.name
+			destVC.phoneL = cell.phone
+			destVC.memoL = cell.memo
         } else if segue.identifier == "showEdit" {
             textField.text = ""
             let destVC: EditViewController = segue.destinationViewController as EditViewController
@@ -77,7 +82,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
-		cell.pic.image = theContact
+//		cell.pic.image = theContact
         return cell
     }
 //End Table
@@ -206,6 +211,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
     func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
         peoplePicker.dismissViewControllerAnimated(true, completion: nil)
+		
     }
 //End AB
     func controllerDidChangeContent(controller: NSFetchedResultsController) {

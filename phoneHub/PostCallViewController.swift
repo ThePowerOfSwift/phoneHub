@@ -10,26 +10,23 @@ import UIKit
 
 class PostCallViewController: UIViewController {
 
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var phoneLabel: UILabel!
+	@IBOutlet weak var memo: UITextView!
+
+	var nameL:String!
+	var phoneL:String!
+	var memoL:String!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+		nameLabel.text = nameL
+		phoneLabel.text = phoneL
+		memo.text = memoL
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

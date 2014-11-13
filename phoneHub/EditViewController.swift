@@ -26,10 +26,13 @@ class EditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
+		memoArea.layer.borderWidth = 5
 		nameField.text = nameF
 		phoneLabel.text = phoneL
 		numField.text = numF
-		memoArea.text = "asfsafd"
+		memoArea.text = ""
 		userPic.image = image
     }
 
