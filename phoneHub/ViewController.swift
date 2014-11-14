@@ -23,11 +23,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     var contact: ABMultiValueRef!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-    
-    var simpleEdit: Bool = false
-    var actionRow: NSIndexPath!
-    var action:Bool = false
-    
+    	
     override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
@@ -50,9 +46,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             let destVC: PostCallViewController = segue.destinationViewController as PostCallViewController
 			let indexPath = tableView.indexPathForSelectedRow()
 			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
-			destVC.nameL = cell.name
-			destVC.phoneL = cell.phone
-			destVC.memoL = cell.memo
+			destVC.contact = cell
         } else if segue.identifier == "showEdit" {
             textField.text = ""
             let destVC: EditViewController = segue.destinationViewController as EditViewController
@@ -61,9 +55,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             destVC.contact = self.contact
 			destVC.phoneDict = self.phoneDict
 			destVC.image = self.image
-	    }
+		} else if segue.identifier == "" {
+			
+		}
 		phoneDict.removeAll()
-		
     }
 
 //Start Table
@@ -82,6 +77,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
+		println("asdf: \(theContact.status)")
 //		cell.pic.image = theContact
         return cell
     }
@@ -95,11 +91,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let editAction = UITableViewRowAction(style: .Normal, title: "edit", handler: {
             (action, indexPath) -> Void in
-            self.simpleEdit = true
-            self.action = true
-            self.actionRow = indexPath
             self.performSegueWithIdentifier("showEdit", sender: self)
-            self.action = false
             }
         )
         editAction.backgroundColor = UIColor.greenColor()
@@ -110,36 +102,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             }
         )
         deleteAction.backgroundColor = UIColor.redColor()
-        
-        let moreAction = UITableViewRowAction(style: .Normal, title: "more", handler: {
-            (action, indexPath) -> Void in
-            let actionSheetController: UIAlertController = UIAlertController(title: "More", message: "Extra Options--Now half off!", preferredStyle: .ActionSheet)
-            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                //dismiss action sheet
-                //doing nothing also makes it dismiss
-            }
-            actionSheetController.addAction(cancelAction)
-            let blue: UIAlertAction = UIAlertAction(title: "Turn it blue", style: .Default) { action -> Void in
-                //Turn the cell blue
-                var cell: ContactCell = self.tableView.cellForRowAtIndexPath(indexPath) as ContactCell
-                cell.backgroundColor = UIColor.blueColor()
-            }
-            actionSheetController.addAction(blue)
-            let white: UIAlertAction = UIAlertAction(title: "Turn it white", style: .Default) { action -> Void in
-                //Turn the cell white
-                var cell: ContactCell = self.tableView.cellForRowAtIndexPath(indexPath) as ContactCell
-                cell.backgroundColor = UIColor.whiteColor()
-            }
-            actionSheetController.addAction(white)
-            //			//We need to provide a popover sourceView when using it on iPad
-            //			actionSheetController.popoverPresentationController?.sourceView = tableView as UITableView;
-			
-            //Present the AlertController
-            self.presentViewController(actionSheetController, animated: true, completion: nil)
-        })
-        moreAction.backgroundColor = UIColor.grayColor()
-        //buttons get displayed in backwards order in app
-        return [deleteAction, moreAction, editAction]
+		
+        return [deleteAction, editAction]
         
     }
     

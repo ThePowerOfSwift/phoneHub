@@ -1,5 +1,5 @@
 //
-//  Contacts.swift
+//  phoneHub.swift
 //  phoneHub
 //
 //  Created by Stanley Chiang on 11/13/14.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Contacts: NSManagedObject {
+class phoneHub: NSManagedObject {
 
     @NSManaged var memo: String
     @NSManaged var name: String
