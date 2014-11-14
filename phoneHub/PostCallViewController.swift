@@ -26,18 +26,12 @@ class PostCallViewController: UIViewController {
 		memo.text = contact.memo
 		
 		//dial out
-		println("dialing")
-		println("got:\(contact.phone)")
-		println("now:\(cleaner(contact.phone))")
+//		println("dialing\ngot:\(contact.phone)\nnow:\(cleaner(contact.phone))")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
-		println("dialed")
 	}
 	
 	@IBAction func status(sender: UIButton) {
-		//set statuses to name of button
-		println(sender.titleLabel!.text!)
 		status = sender.titleLabel!.text!
-		
 	}
 	
 	@IBAction func doneTapped(sender: UIBarButtonItem) {

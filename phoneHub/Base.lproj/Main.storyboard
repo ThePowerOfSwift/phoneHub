@@ -53,7 +53,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Call" id="mzj-eg-b60">
                             <connections>
                                 <action selector="tapCall:" destination="gZN-cZ-udX" id="fMk-0Q-yDM"/>
-                                <segue destination="vgV-Iz-1W4" kind="show" identifier="directCall" id="U7P-30-AVT"/>
                             </connections>
                         </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="Oe4-Ge-e4B">
@@ -74,6 +73,7 @@
                         <segue destination="gu5-Ks-6eB" kind="show" identifier="showEdit" id="akY-aI-hd9"/>
                         <segue destination="OKh-Ib-Dm9" kind="show" identifier="postCall" id="aTK-n8-YU8"/>
                         <segue destination="2gK-5H-yCh" kind="show" identifier="showNumPicker" id="zuK-yX-oJC"/>
+                        <segue destination="vgV-Iz-1W4" kind="show" identifier="directCall" id="uTn-Te-3rY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukU-ul-pzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,11 +265,12 @@
                                 <rect key="frame" x="37" y="109" width="70" height="65"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-sy-dyR">
-                                <rect key="frame" x="58" y="231" width="55" height="30"/>
+                                <rect key="frame" x="58" y="232" width="55" height="30"/>
                                 <state key="normal" title="Button1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="status:" destination="vgV-Iz-1W4" eventType="touchUpInside" id="9XZ-I7-qjZ"/>
                                     <action selector="status:" destination="OKh-Ib-Dm9" eventType="touchUpInside" id="Bcg-b9-8Mm"/>
                                 </connections>
                             </button>
@@ -279,6 +280,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="status:" destination="vgV-Iz-1W4" eventType="touchUpInside" id="CUp-kI-aH1"/>
                                     <action selector="status:" destination="OKh-Ib-Dm9" eventType="touchUpInside" id="ggz-Za-ktF"/>
                                 </connections>
                             </button>
@@ -289,6 +291,7 @@
                                 </state>
                                 <connections>
                                     <action selector="status:" destination="OKh-Ib-Dm9" eventType="touchUpInside" id="Rbe-Tl-8zC"/>
+                                    <action selector="status:" destination="vgV-Iz-1W4" eventType="touchUpInside" id="f3I-xB-j9K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMV-d0-3l3">
@@ -297,6 +300,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="status:" destination="vgV-Iz-1W4" eventType="touchUpInside" id="40V-CE-dYl"/>
                                     <action selector="status:" destination="OKh-Ib-Dm9" eventType="touchUpInside" id="JYF-ce-cic"/>
                                 </connections>
                             </button>
@@ -321,9 +325,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Smt-wI-di5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sX8-h4-FGx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sX8-h4-FGx">
+                            <connections>
+                                <action selector="doneTapped:" destination="vgV-Iz-1W4" id="0Gs-79-9C6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="memo" destination="4Gy-gk-rpZ" id="hkU-My-fof"/>
+                        <outlet property="nameField" destination="amw-YV-h77" id="W2p-Rp-3fg"/>
+                        <outlet property="phoneLabel" destination="Tv5-Dq-0Jd" id="Dn9-5A-Tje"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYg-Kr-Szd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

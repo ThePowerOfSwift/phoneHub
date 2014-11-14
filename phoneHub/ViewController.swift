@@ -23,7 +23,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     var contact: ABMultiValueRef!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-    	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
@@ -43,20 +43,21 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "postCall" {
-            let destVC: PostCallViewController = segue.destinationViewController as PostCallViewController
+            let vc: PostCallViewController = segue.destinationViewController as PostCallViewController
 			let indexPath = tableView.indexPathForSelectedRow()
 			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
-			destVC.contact = cell
+			vc.contact = cell
         } else if segue.identifier == "showEdit" {
             textField.text = ""
-            let destVC: EditViewController = segue.destinationViewController as EditViewController
+            let vc: EditViewController = segue.destinationViewController as EditViewController
         } else if segue.identifier == "showNumPicker" {
-            let destVC: NumPickViewController = segue.destinationViewController as NumPickViewController
-            destVC.contact = self.contact
-			destVC.phoneDict = self.phoneDict
-			destVC.image = self.image
-		} else if segue.identifier == "" {
-			
+            let vc: NumPickViewController = segue.destinationViewController as NumPickViewController
+            vc.contact = self.contact
+			vc.phoneDict = self.phoneDict
+			vc.image = self.image
+		} else if segue.identifier == "directCall" {
+			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
+			vc.number = textField.text
 		}
 		phoneDict.removeAll()
     }
@@ -119,7 +120,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
 //Start Nav Actions
     @IBAction func tapCall(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("buttonCall", sender: self)
+		if textField.text != "" {
+			performSegueWithIdentifier("directCall", sender: self)
+		}
     }
 
     @IBAction func tapPlus(sender: UIBarButtonItem) {
