@@ -58,6 +58,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		} else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
 			vc.number = textField.text
+		} else if segue.identifier == "nameOnly" {
+			let vc: NameOnlyViewController = segue.destinationViewController as NameOnlyViewController
+			vc.name = textField.text
 		}
 		phoneDict.removeAll()
     }
@@ -131,7 +134,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             picker.peoplePickerDelegate = self
             presentViewController(picker, animated: true, completion: nil)
         } else {
-            performSegueWithIdentifier("plusWithTF", sender: self)
+            performSegueWithIdentifier("nameOnly", sender: self)
             
         }
     }

@@ -23,6 +23,7 @@
 		F6C02BCF1A0727170027567B /* PostCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BCE1A0727170027567B /* PostCallViewController.swift */; };
 		F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BD01A0926790027567B /* NumPickViewController.swift */; };
 		F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */; };
+		F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		F6C02BCE1A0727170027567B /* PostCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCallViewController.swift; sourceTree = "<group>"; };
 		F6C02BD01A0926790027567B /* NumPickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPickViewController.swift; sourceTree = "<group>"; };
 		F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDirectCallViewController.swift; sourceTree = "<group>"; };
+		F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameOnlyViewController.swift; path = ../NameOnlyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
 				F6C02BCE1A0727170027567B /* PostCallViewController.swift */,
 				F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */,
+				F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */,
 				F6C02BD01A0926790027567B /* NumPickViewController.swift */,
 				F6C02BAC1A07179E0027567B /* Main.storyboard */,
 				F6C02BCA1A0723800027567B /* ContactCell.swift */,
@@ -248,6 +251,7 @@
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
 				F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */,
+				F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */,
 				F6B576981A1590120022A835 /* Contacts.swift in Sources */,
 				F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */,
 				F6BC9EF61A107B1000C9F500 /* ReferenceLemonadeViewController.swift in Sources */,
