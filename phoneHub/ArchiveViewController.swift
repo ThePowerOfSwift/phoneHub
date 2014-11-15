@@ -25,10 +25,15 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		tableView.reloadData()
 	}
 
-//	override func viewDidAppear(animated: Bool) {
-//		super.viewDidAppear(animated)
-//		tableView.reloadData()
-//	}
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "showLog" {
+			let vc: ArchiveDetailViewController = segue.destinationViewController as ArchiveDetailViewController
+			let indexPath = tableView.indexPathForSelectedRow()
+			var Acell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
+			vc.ArchCell = Acell
+		}
+	}
+	
 //Start Table
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		let numberOfSections = fetchedResultsController.sections?.count
@@ -42,9 +47,10 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let theContact = fetchedResultsController.objectAtIndexPath(indexPath) as Contacts
-		var cell: ArchTableViewCell = tableView.dequeueReusableCellWithIdentifier("archCell") as ArchTableViewCell
+		var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("archCell") as ContactCell
 		cell.nameLabel.text = theContact.name
 		cell.memoLabel.text = theContact.memo
+		cell.phoneType.text = theContact.phoneType
 		cell.pic.image = UIImage(data: theContact.photo)
 		return cell
 	}
@@ -86,7 +92,7 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	
 	func contactFetchRequest() -> NSFetchRequest {
 		let fetchRequest = NSFetchRequest(entityName: "Contacts")
-		let sortDescriptor = NSSortDescriptor(key: "created", ascending: false)
+		let sortDescriptor = NSSortDescriptor(key: "called", ascending: false)
 		fetchRequest.sortDescriptors = [sortDescriptor]
 		fetchRequest.predicate = NSPredicate(format: "called != nil")
 		return fetchRequest

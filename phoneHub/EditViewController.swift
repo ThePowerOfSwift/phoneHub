@@ -53,6 +53,7 @@ class EditViewController: UIViewController {
 		let newEntry = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
 
 		newEntry.name = nameField.text
+		newEntry.phoneType = phoneLabel.text!
 		newEntry.phone = numField.text
 		newEntry.memo = memoArea.text
 		newEntry.created = NSDate()

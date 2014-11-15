@@ -23,8 +23,8 @@
 		F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */; };
 		F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */; };
 		F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */; };
-		F6E1F6B91A16C8D800349714 /* ArchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B81A16C8D800349714 /* ArchTableViewCell.swift */; };
-		F6E1F6BB1A16F97700349714 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6BA1A16F97700349714 /* Contacts.swift */; };
+		F6E1F6BD1A17094100349714 /* ArchiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */; };
+		F6E1F6BF1A17C39E00349714 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6BE1A17C39E00349714 /* Contacts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +58,8 @@
 		F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDirectCallViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOnlyViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
-		F6E1F6B81A16C8D800349714 /* ArchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchTableViewCell.swift; sourceTree = "<group>"; };
-		F6E1F6BA1A16F97700349714 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveDetailViewController.swift; sourceTree = "<group>"; };
+		F6E1F6BE1A17C39E00349714 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contacts.swift; path = ../Contacts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,7 @@
 			children = (
 				F6C02BA51A07179E0027567B /* AppDelegate.swift */,
 				F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */,
+				F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */,
 				F6C02BAA1A07179E0027567B /* ViewController.swift */,
 				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
 				F6C02BCE1A0727170027567B /* PostCallViewController.swift */,
@@ -111,12 +112,11 @@
 				F6C02BD01A0926790027567B /* NumPickViewController.swift */,
 				F6C02BAC1A07179E0027567B /* Main.storyboard */,
 				F6C02BCA1A0723800027567B /* ContactCell.swift */,
-				F6E1F6B81A16C8D800349714 /* ArchTableViewCell.swift */,
 				F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */,
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
 				F6C02BB11A07179E0027567B /* LaunchScreen.xib */,
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
-				F6E1F6BA1A16F97700349714 /* Contacts.swift */,
+				F6E1F6BE1A17C39E00349714 /* Contacts.swift */,
 				F6C02BA31A07179E0027567B /* Supporting Files */,
 			);
 			path = phoneHub;
@@ -251,13 +251,13 @@
 			files = (
 				F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */,
 				F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */,
+				F6E1F6BD1A17094100349714 /* ArchiveDetailViewController.swift in Sources */,
 				F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */,
-				F6E1F6B91A16C8D800349714 /* ArchTableViewCell.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
+				F6E1F6BF1A17C39E00349714 /* Contacts.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
 				F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */,
 				F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */,
-				F6E1F6BB1A16F97700349714 /* Contacts.swift in Sources */,
 				F6C02BD11A0926790027567B /* NumPickViewController.swift in Sources */,
 				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,
 				F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */,

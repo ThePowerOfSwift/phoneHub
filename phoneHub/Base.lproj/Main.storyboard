@@ -33,11 +33,18 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fml-ss-vfs">
                                             <rect key="frame" x="20" y="0.0" width="44" height="43"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezi-6C-LPG">
+                                            <rect key="frame" x="232" y="0.0" width="34" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="memoLabel" destination="1GK-ap-CeW" id="YSi-Oq-tn2"/>
                                     <outlet property="nameLabel" destination="cf3-2d-PC8" id="0px-dN-hMe"/>
+                                    <outlet property="phoneType" destination="Ezi-6C-LPG" id="Mhn-Ki-t4H"/>
                                     <outlet property="pic" destination="fml-ss-vfs" id="LJX-yQ-XXE"/>
                                     <segue destination="OKh-Ib-Dm9" kind="show" identifier="postCall" id="mpV-md-IWB"/>
                                 </connections>
@@ -426,6 +433,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="image" destination="OHI-IO-JZK" id="VKA-Xa-Kxg"/>
                         <outlet property="memo" destination="PVs-vU-ZfQ" id="vqg-Cw-Bsv"/>
                         <outlet property="nameLabel" destination="e2f-i0-GkP" id="XwE-M0-ira"/>
                         <outlet property="phoneLabel" destination="dVQ-ks-S7Q" id="8P5-XF-Ayc"/>
@@ -444,7 +452,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="archCell" id="SfJ-4Q-RST" customClass="ArchTableViewCell" customModule="phoneHub" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="archCell" id="SfJ-4Q-RST" customClass="ContactCell" customModule="phoneHub" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SfJ-4Q-RST" id="wKt-Vf-ex3">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -455,11 +463,15 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmy-o2-8A4">
-                                            <rect key="frame" x="21" y="8" width="46" height="28"/>
-                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmy-o2-8A4"/>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="memo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PE-Kg-HKm">
                                             <rect key="frame" x="108" y="15" width="179" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D7-9G-pER">
+                                            <rect key="frame" x="255" y="0.0" width="57" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -467,10 +479,11 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="memoLabel" destination="8PE-Kg-HKm" id="aDN-yu-s6I"/>
-                                    <outlet property="nameLabel" destination="0jq-9S-1r5" id="rH1-OP-zGO"/>
-                                    <outlet property="pic" destination="fmy-o2-8A4" id="b0f-vW-X2M"/>
-                                    <segue destination="lrI-c3-KbN" kind="show" id="wKU-QD-5XR"/>
+                                    <outlet property="memoLabel" destination="8PE-Kg-HKm" id="C2e-h9-XHc"/>
+                                    <outlet property="nameLabel" destination="0jq-9S-1r5" id="H2R-UR-6eI"/>
+                                    <outlet property="phoneType" destination="4D7-9G-pER" id="X31-nI-XbL"/>
+                                    <outlet property="pic" destination="fmy-o2-8A4" id="3jR-io-Tco"/>
+                                    <segue destination="lrI-c3-KbN" kind="show" identifier="showLog" id="wKU-QD-5XR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -479,7 +492,7 @@
                             <outlet property="delegate" destination="iBw-LD-oHQ" id="Uo0-uC-tlT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4dS-ZA-0Mn"/>
+                    <navigationItem key="navigationItem" title="Archive" id="4dS-ZA-0Mn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVb-Em-YSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -489,7 +502,7 @@
         <!--logDetail-->
         <scene sceneID="1Pq-0Y-jew">
             <objects>
-                <viewController title="logDetail" id="lrI-c3-KbN" sceneMemberID="viewController">
+                <viewController title="logDetail" id="lrI-c3-KbN" customClass="ArchiveDetailViewController" customModule="phoneHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="glN-jg-OES"/>
                         <viewControllerLayoutGuide type="bottom" id="HVF-cE-sq7"/>
@@ -499,28 +512,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jD3-Ie-R0H">
-                                <rect key="frame" x="16" y="39" width="116" height="119"/>
+                                <rect key="frame" x="10" y="94" width="74" height="83"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpW-jh-478">
-                                <rect key="frame" x="206" y="71" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5H-1f-kIr">
-                                <rect key="frame" x="206" y="115" width="49" height="21"/>
+                                <rect key="frame" x="113" y="123" width="181" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3J2-OX-zmQ">
-                                <rect key="frame" x="206" y="160" width="34" height="21"/>
+                                <rect key="frame" x="113" y="168" width="181" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjG-Mq-4cF">
-                                <rect key="frame" x="202" y="210" width="61" height="21"/>
+                                <rect key="frame" x="109" y="218" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -531,16 +538,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYj-6g-x9N">
-                                <rect key="frame" x="40" y="328" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpW-jh-478">
+                                <rect key="frame" x="113" y="94" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="calledTime" destination="3J2-OX-zmQ" id="dyH-aB-YGL"/>
+                        <outlet property="memo" destination="j3p-EV-j6x" id="DHD-2W-sM0"/>
+                        <outlet property="nameLabel" destination="HpW-jh-478" id="Ofa-X2-dKs"/>
+                        <outlet property="phoneLabel" destination="C5H-1f-kIr" id="cJP-oX-wCu"/>
+                        <outlet property="pic" destination="jD3-Ie-R0H" id="tHA-E7-ppf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEi-Pq-HpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

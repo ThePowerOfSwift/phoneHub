@@ -14,7 +14,8 @@ class PostCallViewController: UIViewController {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var memo: UITextView!
-
+	@IBOutlet weak var image: UIImageView!
+	
 	var status:String = "unlabeled"
 	var contact: Contacts!
 	
@@ -23,7 +24,7 @@ class PostCallViewController: UIViewController {
 		nameLabel.text = contact.name
 		phoneLabel.text = contact.phone
 		memo.text = contact.memo
-		
+		image.image = UIImage(data: contact.photo)
 		//dial out
 //		println("dialing\ngot:\(contact.phone)\nnow:\(cleaner(contact.phone))")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
@@ -36,7 +37,7 @@ class PostCallViewController: UIViewController {
 	
 	@IBAction func doneTapped(sender: UIBarButtonItem) {
 		let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-
+		contact.photo = UIImageJPEGRepresentation(image.image,1.0)
 		contact.name = nameLabel.text!
 		contact.phone = phoneLabel.text!
 		contact.memo = memo.text

@@ -81,6 +81,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
+		cell.phoneType.text = theContact.phoneType
 		cell.pic.image = UIImage(data: theContact.photo)
         return cell
     }

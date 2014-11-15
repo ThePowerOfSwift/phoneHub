@@ -2,7 +2,7 @@
 //  Contacts.swift
 //  phoneHub
 //
-//  Created by Stanley Chiang on 11/14/14.
+//  Created by Stanley Chiang on 11/15/14.
 //  Copyright (c) 2014 Stanley Chiang. All rights reserved.
 //
 
@@ -18,5 +18,6 @@ class Contacts: NSManagedObject {
     @NSManaged var phone: String
     @NSManaged var status: String
     @NSManaged var photo: NSData
+    @NSManaged var phoneType: String
 
 }
