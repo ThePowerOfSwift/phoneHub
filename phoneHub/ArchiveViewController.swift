@@ -11,6 +11,7 @@ import CoreData
 
 class ArchiveViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate  {
 
+	var tblView =  UIView(frame: CGRectZero)
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 	
@@ -21,6 +22,13 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		fetchedResultsController.performFetch(nil)
 
     }
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		tableView.tableFooterView = tblView
+		tableView.backgroundColor = UIColor.whiteColor()
+	}
+
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
 		tableView.reloadData()
 	}

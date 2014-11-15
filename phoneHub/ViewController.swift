@@ -18,7 +18,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var ary:[String] = []
 	var aryLabel:String = ""
 	var phoneDict = [String:String]()
-	
+	var tblView =  UIView(frame: CGRectZero)
 	var image: UIImage!
     var contact: ABMultiValueRef!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -31,6 +31,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
     }
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+	tableView.tableFooterView = tblView
+	tableView.backgroundColor = UIColor.whiteColor()
+	}
+	
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
 		textField.resignFirstResponder()
 		return true
