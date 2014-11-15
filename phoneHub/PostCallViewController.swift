@@ -28,6 +28,7 @@ class PostCallViewController: UIViewController {
 		//dial out
 //		println("dialing\ngot:\(contact.phone)\nnow:\(cleaner(contact.phone))")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+		contact.called = NSDate()
 	}
 	
 	@IBAction func status(sender: UIButton) {
@@ -40,7 +41,8 @@ class PostCallViewController: UIViewController {
 		contact.name = nameLabel.text!
 		contact.phone = phoneLabel.text!
 		contact.memo = memo.text
-		contact.status = status
+		if status != "Button1" {contact.status = status}
+		else {contact.called = nil}
 		appDelegate.saveContext()
 		self.navigationController?.popToRootViewControllerAnimated(true)
 	}

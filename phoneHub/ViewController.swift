@@ -81,7 +81,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
-		println("asdf: \(theContact.status)")
+		println("asdf: \(theContact.created)")
 //		cell.pic.image = theContact
         return cell
     }
@@ -190,11 +190,12 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
     func contactFetchRequest() -> NSFetchRequest {
         let fetchRequest = NSFetchRequest(entityName: "Contacts")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
+		fetchRequest.predicate = NSPredicate(format: "called = nil")
         return fetchRequest
     }
-    
+	
     func getFetchResultsController() -> NSFetchedResultsController {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: contactFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController

@@ -55,7 +55,7 @@ class EditViewController: UIViewController {
 		newEntry.name = nameField.text
 		newEntry.phone = numField.text
 		newEntry.memo = memoArea.text
-
+		newEntry.created = NSDate()
 		appDelegate.saveContext()
 		self.navigationController?.popToRootViewControllerAnimated(true)
     }
