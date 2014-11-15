@@ -81,8 +81,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
         cell.nameLabel.text = theContact.name
         cell.memoLabel.text = theContact.memo
-		println("asdf: \(theContact.created)")
-//		cell.pic.image = theContact
+		cell.pic.image = UIImage(data: theContact.photo)
         return cell
     }
 //End Table
@@ -125,6 +124,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     @IBAction func tapCall(sender: UIBarButtonItem) {
 		if textField.text != "" {
 			performSegueWithIdentifier("directCall", sender: self)
+		} else { //either dial out or tell user to first give a number
+			textField.becomeFirstResponder()
 		}
     }
 

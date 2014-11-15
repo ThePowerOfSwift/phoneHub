@@ -11,11 +11,12 @@ import CoreData
 
 class Contacts: NSManagedObject {
 
+    @NSManaged var called: NSDate?
+    @NSManaged var created: NSDate
     @NSManaged var memo: String
     @NSManaged var name: String
     @NSManaged var phone: String
     @NSManaged var status: String
-    @NSManaged var created: NSDate
-    @NSManaged var called: NSDate?
+    @NSManaged var photo: NSData
 
 }

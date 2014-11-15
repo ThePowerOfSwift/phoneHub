@@ -16,7 +16,6 @@ class PostCallViewController: UIViewController {
 	@IBOutlet weak var memo: UITextView!
 
 	var status:String = "unlabeled"
-
 	var contact: Contacts!
 	
 	override func viewDidLoad() {

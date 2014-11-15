@@ -56,6 +56,7 @@ class EditViewController: UIViewController {
 		newEntry.phone = numField.text
 		newEntry.memo = memoArea.text
 		newEntry.created = NSDate()
+		newEntry.photo = UIImageJPEGRepresentation(image,1.0)
 		appDelegate.saveContext()
 		self.navigationController?.popToRootViewControllerAnimated(true)
     }

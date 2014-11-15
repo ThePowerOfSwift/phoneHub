@@ -45,8 +45,7 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		var cell: ArchTableViewCell = tableView.dequeueReusableCellWithIdentifier("archCell") as ArchTableViewCell
 		cell.nameLabel.text = theContact.name
 		cell.memoLabel.text = theContact.memo
-		println("asdf: \(theContact.created)")
-		//		cell.pic.image = theContact
+		cell.pic.image = UIImage(data: theContact.photo)
 		return cell
 	}
 //End Table
