@@ -8,14 +8,16 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class PostCallViewController: UIViewController {
+class PostCallViewController: UIViewController, CLLocationManagerDelegate {
 
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var memo: UITextView!
 	@IBOutlet weak var image: UIImageView!
 	
+	let locationManager = CLLocationManager()
 	var status:String = "unlabeled"
 	var contact: Contacts!
 	

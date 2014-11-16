@@ -33,6 +33,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	
     override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		pic.image = image
 		nameLabel.text = contact as NSString
 		tableView.tableFooterView = tblView
 		tableView.backgroundColor = UIColor.clearColor()
@@ -62,18 +63,14 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "numberSelected" {
             let vc: EditViewController = segue.destinationViewController as EditViewController
-
-			println(selectedNumber)
-			vc.contact?.phone = selectedNumber
-			vc.contact?.phoneType = selectedType
-			vc.contact?.name = nameLabel.text!
-			vc.contact?.photo = UIImageJPEGRepresentation(image, 1)
-
-			println(contact.name)
-			println(contact?.name)
-//			vc.contact?.photo = UIImageJPEGRepresentation(pic.image,1)
-//			phoneDict.removeAll()
-        }
+			vc.contact = NSEntityDescription.insertNewObjectForEntityForName("Contacts", inManagedObjectContext: managedObjectContext) as Contacts
+			vc.contact.phone = selectedNumber
+			vc.contact.phoneType = selectedType
+			vc.contact.name = nameLabel.text!
+			vc.contact.memo = ""
+			vc.contact.photo = UIImageJPEGRepresentation(image, 1)
+			vc.fromNumPick = true
+		}
     }
 	
 //Start AB
@@ -98,6 +95,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		} else {
 			image = UIImage(named:"152 - iPad")
 		}
+		pic.image = image
 		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
 		var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
 		//load phone numbers into array
@@ -124,7 +122,8 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	}
 	
 	func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
-		peoplePicker.dismissViewControllerAnimated(true, completion: nil)
+		//peoplePicker.dismissViewControllerAnimated(true, completion: nil)
+	self.navigationController?.popToRootViewControllerAnimated(true)
 	}
 //End AB
 
