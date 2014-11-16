@@ -25,6 +25,10 @@
 		F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */; };
 		F6E1F6BD1A17094100349714 /* ArchiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */; };
 		F6E1F6BF1A17C39E00349714 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6BE1A17C39E00349714 /* Contacts.swift */; };
+		F6E1F6C81A18419100349714 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E1F6C21A183FA300349714 /* AddressBookUI.framework */; };
+		F6E1F6C91A18419700349714 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E1F6C41A183FAD00349714 /* AddressBook.framework */; };
+		F6E1F6CA1A18419C00349714 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E1F6C01A183F9400349714 /* MapKit.framework */; };
+		F6E1F6CF1A18493B00349714 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E1F6CD1A18490300349714 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveDetailViewController.swift; sourceTree = "<group>"; };
 		F6E1F6BE1A17C39E00349714 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contacts.swift; path = ../Contacts.swift; sourceTree = "<group>"; };
+		F6E1F6C01A183F9400349714 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F6E1F6C21A183FA300349714 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F6E1F6C41A183FAD00349714 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F6E1F6CD1A18490300349714 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E1F6CF1A18493B00349714 /* CoreLocation.framework in Frameworks */,
+				F6E1F6CA1A18419C00349714 /* MapKit.framework in Frameworks */,
+				F6E1F6C91A18419700349714 /* AddressBook.framework in Frameworks */,
+				F6E1F6C81A18419100349714 /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,7 @@
 		F6C02B971A07179E0027567B = {
 			isa = PBXGroup;
 			children = (
+				F6E1F6CD1A18490300349714 /* CoreLocation.framework */,
 				F6C02BA21A07179E0027567B /* phoneHub */,
 				F6C02BBB1A07179E0027567B /* phoneHubTests */,
 				F6C02BA11A07179E0027567B /* Products */,
@@ -101,6 +114,9 @@
 		F6C02BA21A07179E0027567B /* phoneHub */ = {
 			isa = PBXGroup;
 			children = (
+				F6E1F6C41A183FAD00349714 /* AddressBook.framework */,
+				F6E1F6C21A183FA300349714 /* AddressBookUI.framework */,
+				F6E1F6C01A183F9400349714 /* MapKit.framework */,
 				F6C02BA51A07179E0027567B /* AppDelegate.swift */,
 				F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */,
 				F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */,

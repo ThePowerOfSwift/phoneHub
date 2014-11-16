@@ -27,6 +27,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	var phoneDict = [String:String]()
 
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 
 	var tblView =  UIView(frame: CGRectZero)
 	
@@ -35,14 +36,11 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		nameLabel.text = contact as NSString
 		tableView.tableFooterView = tblView
 		tableView.backgroundColor = UIColor.clearColor()
-		if image != nil {
-			pic.image = image
-		} else {
-			println("nillio")
-		}
 		self.tableView.reloadData()
 	}
-
+	func controllerDidChangeContent(controller: NSFetchedResultsController) {
+		tableView.reloadData()
+	}
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return phoneDict.count
 	}
@@ -63,16 +61,18 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "numberSelected" {
-            let destVC: EditViewController = segue.destinationViewController as EditViewController
-			
-			destVC.nameF = nameLabel.text!
-			destVC.phoneL = selectedType
-			destVC.numF = selectedNumber
-			destVC.image = image
-			nameLabel.text = ""
-			selectedType = ""
-			selectedNumber = ""
-			phoneDict.removeAll()
+            let vc: EditViewController = segue.destinationViewController as EditViewController
+
+			println(selectedNumber)
+			vc.contact?.phone = selectedNumber
+			vc.contact?.phoneType = selectedType
+			vc.contact?.name = nameLabel.text!
+			vc.contact?.photo = UIImageJPEGRepresentation(image, 1)
+
+			println(contact.name)
+			println(contact?.name)
+//			vc.contact?.photo = UIImageJPEGRepresentation(pic.image,1)
+//			phoneDict.removeAll()
         }
     }
 	

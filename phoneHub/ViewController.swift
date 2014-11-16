@@ -18,6 +18,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var ary:[String] = []
 	var aryLabel:String = ""
 	var phoneDict = [String:String]()
+	var editRow:NSIndexPath!
 	var tblView =  UIView(frame: CGRectZero)
 	var image: UIImage!
     var contact: ABMultiValueRef!
@@ -49,14 +50,16 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "postCall" {
+		textField.text = ""
+		if segue.identifier == "postCall" {
             let vc: PostCallViewController = segue.destinationViewController as PostCallViewController
 			let indexPath = tableView.indexPathForSelectedRow()
 			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
 			vc.contact = cell
         } else if segue.identifier == "showEdit" {
-            textField.text = ""
             let vc: EditViewController = segue.destinationViewController as EditViewController
+			let cell = fetchedResultsController.objectAtIndexPath(editRow) as Contacts
+			vc.contact = cell
         } else if segue.identifier == "showNumPicker" {
             let vc: NumPickViewController = segue.destinationViewController as NumPickViewController
             vc.contact = self.contact
@@ -102,6 +105,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let editAction = UITableViewRowAction(style: .Normal, title: "edit", handler: {
             (action, indexPath) -> Void in
+			self.editRow = indexPath
             self.performSegueWithIdentifier("showEdit", sender: self)
             }
         )

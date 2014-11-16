@@ -70,12 +70,13 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	}
 	
 	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-		let editAction = UITableViewRowAction(style: .Normal, title: "edit", handler: {
+		let addAction = UITableViewRowAction(style: .Normal, title: "add", handler: {
 			(action, indexPath) -> Void in
-			self.performSegueWithIdentifier("showEdit", sender: self)
+			let theContact:Contacts = self.fetchedResultsController.objectAtIndexPath(indexPath) as Contacts
+			theContact.called = nil
 			}
 		)
-		editAction.backgroundColor = UIColor.greenColor()
+		addAction.backgroundColor = UIColor.greenColor()
 		
 		let deleteAction = UITableViewRowAction(style: .Normal, title: "delete", handler: {
 			(action, indexPath) -> Void in
@@ -84,7 +85,7 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		)
 		deleteAction.backgroundColor = UIColor.redColor()
 		
-		return [deleteAction, editAction]
+		return [deleteAction, addAction]
 		
 	}
 	
@@ -97,7 +98,6 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	}
 	
 //End Row Actions
-	
 	func contactFetchRequest() -> NSFetchRequest {
 		let fetchRequest = NSFetchRequest(entityName: "Contacts")
 		let sortDescriptor = NSSortDescriptor(key: "called", ascending: false)
