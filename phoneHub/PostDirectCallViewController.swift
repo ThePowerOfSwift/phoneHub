@@ -11,6 +11,7 @@ import CoreData
 
 class PostDirectCallViewController: UIViewController {
 
+	@IBOutlet weak var image: UIImageView!
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var nameField: UITextField!
 	@IBOutlet weak var memo: UITextView!
@@ -22,6 +23,7 @@ class PostDirectCallViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		phoneLabel.text = number
+		image.image = UIImage(named: "152 - iPad")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(number))")!)
     }
 
@@ -39,9 +41,12 @@ class PostDirectCallViewController: UIViewController {
 			contact.name = nameField.text
 		}
 		
+		contact.photo = UIImageJPEGRepresentation(image.image,1.0)
 		contact.memo = memo.text
 		contact.phone = phoneLabel.text!
 		contact.status = status
+		contact.phoneType = "Phone"
+		contact.called = NSDate()
 		appDelegate.saveContext()
 		
 		self.navigationController?.popToRootViewControllerAnimated(true)

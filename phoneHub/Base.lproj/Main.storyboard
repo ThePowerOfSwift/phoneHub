@@ -337,6 +337,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="image" destination="RPI-nA-p4U" id="69M-A0-jMz"/>
                         <outlet property="memo" destination="4Gy-gk-rpZ" id="hkU-My-fof"/>
                         <outlet property="nameField" destination="amw-YV-h77" id="W2p-Rp-3fg"/>
                         <outlet property="phoneLabel" destination="Tv5-Dq-0Jd" id="Dn9-5A-Tje"/>
