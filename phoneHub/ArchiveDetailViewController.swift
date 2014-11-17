@@ -19,35 +19,33 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 	@IBOutlet weak var map: MKMapView!
 	
 	var ArchCell:Contacts!
-	var locationManager = CLLocationManager()
+	var locationManager:CLLocationManager = CLLocationManager()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-//Start Loc
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.startUpdatingLocation()
 
-//		locationManager(locationManager, didUpdateLocations: [])
-		println(ArchCell.latitude)
-		println(ArchCell.longitude)
-		let latitude:CLLocationDegrees = CLLocationDegrees(ArchCell.latitude)
-		let longitude:CLLocationDegrees = CLLocationDegrees(ArchCell.longitude)
+//		println(ArchCell.latitude)
+//		println(ArchCell.longitude)
 		
-		let latDelta:CLLocationDegrees = 0.01
-		let longDelta:CLLocationDegrees = 0.01
-		
-		var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-		var locationOfInterest:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-		var region:MKCoordinateRegion = MKCoordinateRegionMake(locationOfInterest, theSpan)
-		
-		map.setRegion(region, animated: true)
-		
-		var thePin = MKPointAnnotation()
-		thePin.coordinate = locationOfInterest
-		map.addAnnotation(thePin)
-//End Loc
+//		let latitude:CLLocationDegrees = CLLocationDegrees(ArchCell.latitude)
+//		let longitude:CLLocationDegrees = CLLocationDegrees(ArchCell.longitude)
+//		
+//		let latDelta:CLLocationDegrees = 0.01
+//		let longDelta:CLLocationDegrees = 0.01
+//		
+//		var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+//		var locationOfInterest:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+//		var region:MKCoordinateRegion = MKCoordinateRegionMake(locationOfInterest, theSpan)
+//		
+//		map.setRegion(region, animated: true)
+//		
+//		var thePin = MKPointAnnotation()
+//		thePin.coordinate = locationOfInterest
+//		map.addAnnotation(thePin)
 		
 		let dateFormatter = NSDateFormatter()
 		dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
@@ -62,44 +60,75 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 		memo.text = ArchCell.memo
 	}
 	
+//	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+//			if placemarks.count > 0 {
+//				let pm = placemarks[0] as CLPlacemark
+//				self.locationManager.stopUpdatingLocation()
+//				println("lat: \(pm.location.coordinate.latitude)\t\t\(pm.location.coordinate.longitude)")
+//			} else {
+//				println("Error with the data.")
+//			}
+//		})
+//	}
+//
+//	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+//		println("Error: " + error.localizedDescription)
+//	}
+	
+	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
-			if placemarks.count > 0 {
-				let pm = placemarks[0] as CLPlacemark
-				self.locationManager.stopUpdatingLocation()
-				
-				self.ArchCell.latitude = pm.location.coordinate.latitude
-				self.ArchCell.longitude = pm.location.coordinate.longitude
-				println("lat: \(pm.location.coordinate.latitude)\t\t\(pm.location.coordinate.longitude)")
-				println(pm.country)
-			} else {
-				println("Error with the data.")
-			}
-		})
+			println("managerLocation: \(manager.location)")
+		println("latitude: \(manager.location.coordinate.latitude)")
+		println("longitude: \(manager.location.coordinate.longitude)")
+		self.locationManager.stopUpdatingLocation()
+		
+		let latitude:CLLocationDegrees = CLLocationDegrees(manager.location.coordinate.latitude)
+		let longitude:CLLocationDegrees = CLLocationDegrees(manager.location.coordinate.longitude)
+		
+		let latDelta:CLLocationDegrees = 0.01
+		let longDelta:CLLocationDegrees = 0.01
+		
+		var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+		var locationOfInterest:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+		var region:MKCoordinateRegion = MKCoordinateRegionMake(locationOfInterest, theSpan)
+		
+		map.setRegion(region, animated: true)
+		
+		var thePin = MKPointAnnotation()
+		thePin.coordinate = locationOfInterest
+		map.addAnnotation(thePin)
+
+		
+//		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+//			println("placemarks: \(placemarks)")
+//
+//			if (error != nil) {
+//				println("111111111Error: " + error.localizedDescription)
+//				return
+//			}
+//			
+//			if placemarks.count > 0 {
+//				let pm = placemarks[0] as CLPlacemark
+//				self.displayLocationInfo(pm)
+//			} else {
+//				println("222222222Error with the data.")
+//			}
+//		})
+	}
+	
+//	func displayLocationInfo(placemark: CLPlacemark) {
+//		
+//		self.locationManager.stopUpdatingLocation()
+//		println(placemark.locality)
+//		println(placemark.postalCode)
+//		println(placemark.administrativeArea)
+//		println(placemark.country)
+//		println(placemark.location.coordinate.latitude)
+//		println(placemark.location.coordinate.longitude)
+//	}
+	
+	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+		println("zxcvzxcvError: " + error.localizedDescription)
 	}
 }
-/*
-import UIKit
-import CoreLocation
-class ViewController: UIViewController, CLLocationManagerDelegate {
-	let locationManager = CLLocationManager()
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.locationManager.delegate = self
-		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		self.locationManager.requestWhenInUseAuthorization()
-		self.locationManager.startUpdatingLocation()
-	}
-	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
-			if placemarks.count > 0 {
-				let pm = placemarks[0] as CLPlacemark
-				self.locationManager.stopUpdatingLocation()
-				println("lat: \(pm.location.coordinate.latitude)\t\t\(pm.location.coordinate.longitude)")
-			} else {
-				println("Error with the data.")
-			}
-		})
-	}
-}
-*/
