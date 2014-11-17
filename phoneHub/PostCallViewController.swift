@@ -47,7 +47,7 @@ class PostCallViewController: UIViewController, CLLocationManagerDelegate {
 		contact.name = nameLabel.text!
 		contact.phone = phoneLabel.text!
 		contact.memo = memo.text
-		if status != "Button1" {contact.status = status}
+		if status != "Call Back" {contact.status = status}
 		else {contact.called = nil}
 		appDelegate.saveContext()
 		self.navigationController?.popToRootViewControllerAnimated(true)

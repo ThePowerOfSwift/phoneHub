@@ -47,9 +47,15 @@ class PostDirectCallViewController: UIViewController {
 		contact.photo = UIImageJPEGRepresentation(image.image,1.0)
 		contact.memo = memo.text
 		contact.phone = phoneLabel.text!
-		contact.status = status
 		contact.phoneType = "Phone"
-		contact.called = NSDate()
+		if status != "Call Back" {
+			contact.status = status
+			contact.called = NSDate()
+		}
+		else {
+			contact.status = status
+			contact.called = nil
+		}
 		appDelegate.saveContext()
 		
 		self.navigationController?.popToRootViewControllerAnimated(true)
