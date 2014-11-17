@@ -22,6 +22,9 @@ class PostDirectCallViewController: UIViewController {
 	var number: String!
 	override func viewDidLoad() {
         super.viewDidLoad()
+		memo.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
+		memo.layer.borderWidth = 5
+
 		phoneLabel.text = number
 		image.image = UIImage(named: "152 - iPad")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(number))")!)

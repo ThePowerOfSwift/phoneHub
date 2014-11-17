@@ -24,6 +24,9 @@ class PostCallViewController: UIViewController, CLLocationManagerDelegate {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.hidesBackButton = true
+		memo.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
+		memo.layer.borderWidth = 5
+
 		nameLabel.text = contact.name
 		phoneLabel.text = contact.phone
 		memo.text = contact.memo
