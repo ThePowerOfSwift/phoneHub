@@ -38,8 +38,7 @@ class EditViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func tappedTryAgain(sender: UIBarButtonItem) {
-		self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func tappedTryAgain(sender: UIBarButtonItem) {		self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func tappedDone(sender: UIBarButtonItem) {

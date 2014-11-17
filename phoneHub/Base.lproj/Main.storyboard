@@ -655,6 +655,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="image" destination="CWS-tu-Tu4" id="8Dt-9h-J8d"/>
                         <outlet property="memo" destination="crY-0N-mcp" id="51m-Im-0ZA"/>
                         <outlet property="nameLabel" destination="imW-yA-Eid" id="apg-zA-BAh"/>
                         <outlet property="phoneField" destination="XfH-lc-CvL" id="7Zw-ss-Xj1"/>

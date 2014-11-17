@@ -11,6 +11,7 @@ import CoreData
 
 class NameOnlyViewController: UIViewController {
 
+	@IBOutlet weak var image: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var phoneField: UITextField!
 	@IBOutlet weak var memo: UITextView!
@@ -22,16 +23,19 @@ class NameOnlyViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		nameLabel.text = name
+		image.image = UIImage(named: "152 - iPad")
     }
 
 	@IBAction func doneTapped(sender: UIBarButtonItem) {
 		if phoneField.text != "" {
 			let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
 			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-		
+			
+			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
 			contact.name = nameLabel.text!
 			contact.memo = memo.text
 			contact.phone = phoneField.text!
+			contact.phoneType = "Phone"
 			contact.status = status
 			appDelegate.saveContext()
 		

@@ -24,7 +24,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     var contact: ABMultiValueRef!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-	
+	var textFieldValue:String!
     override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
@@ -70,7 +70,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			vc.number = textField.text
 		} else if segue.identifier == "nameOnly" {
 			let vc: NameOnlyViewController = segue.destinationViewController as NameOnlyViewController
-			vc.name = textField.text
+//			println("insegue: \(textField.text)")
+//			println("insegue: \(textFieldValue)")
+			vc.name = textFieldValue
 		}
 		phoneDict.removeAll()
     }
@@ -147,7 +149,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             picker.peoplePickerDelegate = self
             presentViewController(picker, animated: true, completion: nil)
         } else {
-            performSegueWithIdentifier("nameOnly", sender: self)
+			textFieldValue = textField.text
+//			println("presegue: \(textField.text)")
+//			println("Valpresegue: \(textFieldValue)")
+			performSegueWithIdentifier("nameOnly", sender: self)
             
         }
     }

@@ -39,9 +39,11 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 		tableView.backgroundColor = UIColor.clearColor()
 		self.tableView.reloadData()
 	}
+
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
 		tableView.reloadData()
 	}
+	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return phoneDict.count
 	}
