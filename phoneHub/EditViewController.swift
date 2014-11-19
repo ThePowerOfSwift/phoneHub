@@ -20,7 +20,7 @@ class EditViewController: UIViewController {
 	var contact: Contacts!
 	let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
 	
-	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+	let managedObjectContext:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,9 @@ class EditViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func tappedTryAgain(sender: UIBarButtonItem) {		self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func tappedTryAgain(sender: UIBarButtonItem) {
+		managedObjectContext.deleteObject(contact)
+		self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func tappedDone(sender: UIBarButtonItem) {
@@ -49,7 +51,12 @@ class EditViewController: UIViewController {
 		contact.memo = memoArea.text
 		contact.created = NSDate()
 		contact.photo = contact.photo
-		
+		//managedObjectContext.deleteObject()
+		//make a model and only save it as a core data object once your ready
+		//uiview.animatewithduration
+		//scrolll view content size
+		//export icon to pdf, create image set, attributes inspector, convert bitmap to vector
+		//create base class
 		appDelegate.saveContext()
 		self.navigationController?.popToRootViewControllerAnimated(true)
     }

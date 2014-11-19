@@ -45,7 +45,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		// called when 'return' key pressed. return NO to ignore.
 	}
 
-	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {//nsnotification enter
 		self.view.endEditing(true)
 	}
 
