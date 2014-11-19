@@ -67,7 +67,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			vc.image = self.image
 		} else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
-			vc.number = textField.text
+			vc.number = textFieldValue
 		} else if segue.identifier == "nameOnly" {
 			let vc: NameOnlyViewController = segue.destinationViewController as NameOnlyViewController
 //			println("insegue: \(textField.text)")
@@ -137,6 +137,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 //Start Nav Actions
     @IBAction func tapCall(sender: UIBarButtonItem) {
 		if textField.text != "" {
+			textFieldValue = textField.text
 			performSegueWithIdentifier("directCall", sender: self)
 		} else { //either dial out or tell user to first give a number
 			textField.becomeFirstResponder()

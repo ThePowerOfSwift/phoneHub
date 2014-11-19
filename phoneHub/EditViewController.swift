@@ -24,7 +24,7 @@ class EditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.navigationItem.title = "qwer"
+//		self.navigationItem.title = "qwer"
 
 		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
 		memoArea.layer.borderWidth = 5
@@ -40,7 +40,7 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func tappedTryAgain(sender: UIBarButtonItem) {
-		managedObjectContext.deleteObject(contact)
+//		managedObjectContext.deleteObject(contact)
 		self.navigationController?.popViewControllerAnimated(true)
     }
     

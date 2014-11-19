@@ -25,6 +25,7 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	var ary:[String] = []
 	var aryLabel:String! = ""
 	var phoneDict = [String:String]()
+	let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
 
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
@@ -58,23 +59,19 @@ class NumPickViewController: UIViewController, UITableViewDataSource, UITableVie
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		selectedType = Array(phoneDict.keys)[indexPath.row]
 		selectedNumber = Array(phoneDict.values)[indexPath.row]
-
-		performSegueWithIdentifier("numberSelected", sender: self)
+		
+		var newEntry = NSEntityDescription.insertNewObjectForEntityForName("Contacts", inManagedObjectContext: managedObjectContext) as Contacts
+		
+		newEntry.name = contact as NSString
+		newEntry.phone = selectedNumber
+		newEntry.phoneType = selectedType
+		newEntry.memo = ""
+		newEntry.photo = UIImageJPEGRepresentation(image, 1)
+		
+		appDelegate.saveContext()
+		self.navigationController?.popToRootViewControllerAnimated(true)
 	}
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "numberSelected" {
-            let vc: EditViewController = segue.destinationViewController as EditViewController
-			vc.contact = NSEntityDescription.insertNewObjectForEntityForName("Contacts", inManagedObjectContext: managedObjectContext) as Contacts
-			vc.contact.phone = selectedNumber
-			vc.contact.phoneType = selectedType
-			vc.contact.name = nameLabel.text!
-			vc.contact.memo = ""
-			vc.contact.photo = UIImageJPEGRepresentation(image, 1)
-			vc.fromNumPick = true
-		}
-    }
-	
+
 //Start AB
     
     @IBAction func bktoAB(sender: UIBarButtonItem) {

@@ -20,14 +20,17 @@ class PostDirectCallViewController: UIViewController {
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var status:String = "unlabeled"
 	var number: String!
+	var contact: Contacts!
 	override func viewDidLoad() {
         super.viewDidLoad()
+		self.navigationItem.hidesBackButton = true
 		memo.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
 		memo.layer.borderWidth = 5
 
 		phoneLabel.text = number
 		image.image = UIImage(named: "152 - iPad")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(number))")!)
+//		contact.called = NSDate()
     }
 
 	@IBAction func status(sender: UIButton) {
