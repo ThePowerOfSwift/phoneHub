@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import AddressBookUI
+
 import CoreData
 
-class ViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class ViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
 	
@@ -21,7 +21,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var editRow:NSIndexPath!
 	var tblView =  UIView(frame: CGRectZero)
 	var image: UIImage!
-    var contact: ABMultiValueRef!
+//    var contact: ABMultiValueRef!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 	var textFieldValue:String!
@@ -62,7 +62,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			vc.contact = cell
         } else if segue.identifier == "showNumPicker" {
             let vc: NumPickViewController = segue.destinationViewController as NumPickViewController
-            vc.contact = self.contact
+//            vc.contact = self.contact
 			vc.phoneDict = self.phoneDict
 			vc.image = self.image
 		} else if segue.identifier == "directCall" {
@@ -73,6 +73,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 //			println("insegue: \(textField.text)")
 //			println("insegue: \(textFieldValue)")
 			vc.name = textFieldValue
+		} else if segue.identifier == "showAB" {
+			let vc: ABNavController = segue.destinationViewController as ABNavController
 		}
 		phoneDict.removeAll()
     }
@@ -140,69 +142,21 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			textFieldValue = textField.text
 			performSegueWithIdentifier("directCall", sender: self)
 		} else { //either dial out or tell user to first give a number
+//			performSegueWithIdentifier("showAB", sender: self)
 			textField.becomeFirstResponder()
 		}
     }
 
     @IBAction func tapPlus(sender: UIBarButtonItem) {
         if textField.text == "" {
-            let picker = ABPeoplePickerNavigationController()
-            picker.peoplePickerDelegate = self
-            presentViewController(picker, animated: true, completion: nil)
-        } else {
+			presentViewController(ABNavController(), animated: true, completion: nil)
+		} else {
 			textFieldValue = textField.text
-//			println("presegue: \(textField.text)")
-//			println("Valpresegue: \(textFieldValue)")
 			performSegueWithIdentifier("nameOnly", sender: self)
-            
         }
     }
 //End Nav Actions
     
-    
-//Start AB
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecordRef!) {
-		
-		
-		var labelAry:[String] = []	//labelAry defined here or it needs to be cleared out for each new contact
-		
-		var imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)?.takeRetainedValue()
-		if imgData != nil {
-		image = UIImage(data:imgData!)
-		} else {
-			image = UIImage(named:"152 - iPad")
-		}
-		contact = ABRecordCopyCompositeName(person).takeRetainedValue()
-        var phones: ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
-		//load phone numbers into array
-		ary = ABMultiValueCopyArrayOfAllValues(phones).takeRetainedValue() as [String]
-		
-		//load phone labels into array
-		for i=0; i < ary.count; i++ {
-			aryLabel = String(ABMultiValueCopyLabelAtIndex(phones,i).takeRetainedValue())
-			aryLabel = aryLabel.substringWithRange(Range<String.Index>(start: advance(aryLabel.startIndex, 4), end: advance(aryLabel.endIndex, -4)))
-			labelAry.append(aryLabel)
-		}
-
-		//merge labels and nums into dictionary
-		for i=0; i<ary.count; i++ {
-			phoneDict[labelAry[i]] = ary[i]
-		}
-        performSegueWithIdentifier("showNumPicker", sender: self)
-    }
-    
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, shouldContinueAfterSelectingPerson person: ABRecordRef!) -> Bool {
-        peoplePickerNavigationController(peoplePicker, didSelectPerson: person)
-        peoplePicker.dismissViewControllerAnimated(true, completion: nil)
-        
-        return false;
-    }
-    
-    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
-        peoplePicker.dismissViewControllerAnimated(true, completion: nil)
-		
-    }
-//End AB
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
     }

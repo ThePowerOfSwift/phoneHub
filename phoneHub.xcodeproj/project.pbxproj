@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F61B1FCE1A12A6E10041EA56 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */; };
+		F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */; };
 		F6B5768C1A132D170022A835 /* 152 - iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B5768B1A132D170022A835 /* 152 - iPad.png */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		F61B1FCD1A12A6E10041EA56 /* NumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
+		F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABNavController.swift; path = ../ABNavController.swift; sourceTree = "<group>"; };
 		F6B5768B1A132D170022A835 /* 152 - iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "152 - iPad.png"; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */,
 				F6E1F6BC1A17094100349714 /* ArchiveDetailViewController.swift */,
 				F6C02BAA1A07179E0027567B /* ViewController.swift */,
+				F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */,
 				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
 				F6C02BCE1A0727170027567B /* PostCallViewController.swift */,
 				F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */,
 				F6CFBD981A1C2C2100A81CF8 /* Entry.swift in Sources */,
 				F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */,
 				F6C02BCD1A0726D60027567B /* EditViewController.swift in Sources */,

@@ -79,14 +79,33 @@
                         <outlet property="textField" destination="Oe4-Ge-e4B" id="MVz-Dg-UZt"/>
                         <segue destination="gu5-Ks-6eB" kind="show" identifier="showEdit" id="akY-aI-hd9"/>
                         <segue destination="OKh-Ib-Dm9" kind="show" identifier="postCall" id="aTK-n8-YU8"/>
-                        <segue destination="2gK-5H-yCh" kind="show" identifier="showNumPicker" id="zuK-yX-oJC"/>
                         <segue destination="vgV-Iz-1W4" kind="show" identifier="directCall" id="uTn-Te-3rY"/>
                         <segue destination="HGu-Z7-VZd" kind="show" identifier="nameOnly" id="DDE-vC-QPh"/>
+                        <segue destination="r9u-mk-Sxz" kind="show" identifier="showAB" id="sBr-Y3-RS4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukU-ul-pzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973" y="-338"/>
+        </scene>
+        <!--Nav Controller-->
+        <scene sceneID="90P-Oo-nOR">
+            <objects>
+                <viewController id="r9u-mk-Sxz" customClass="ABNavController" customModule="phoneHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YLv-17-dI9"/>
+                        <viewControllerLayoutGuide type="bottom" id="6hx-RT-fgC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UDi-23-F0K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmZ-xD-4QU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="-338"/>
         </scene>
         <!--edit-->
         <scene sceneID="Qhr-3M-QgT">
@@ -242,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3W-vb-8T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518" y="-338"/>
+            <point key="canvasLocation" x="1901" y="-338"/>
         </scene>
         <!--Post Direct Call View Controller-->
         <scene sceneID="xXx-R6-Q6L">
