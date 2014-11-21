@@ -13,13 +13,42 @@ class Contacts: NSManagedObject {
 
     @NSManaged var called: NSDate?
     @NSManaged var created: NSDate
-    @NSManaged var latitude: NSNumber
-    @NSManaged var longitude: NSNumber
-    @NSManaged var memo: String
+    @NSManaged var latitude: NSNumber?
+    @NSManaged var longitude: NSNumber?
+    @NSManaged var memo: String?
     @NSManaged var name: String
     @NSManaged var phone: String
     @NSManaged var phoneType: String
     @NSManaged var photo: NSData
     @NSManaged var status: String
+	
+//full initializer
+	convenience init(name:String, phone:String, phoneType: String,
+		 photo: NSData, status: String, memo: String, called: NSDate, latitude: NSNumber, longitude: NSNumber, context: NSManagedObjectContext) {
+		let entity = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: context)!
+		self.init(entity: entity, insertIntoManagedObjectContext: context)
+		self.name = name
+		self.phone = phone
+		self.phoneType = phoneType
+		self.photo = photo
+		self.status = status
+		self.created = NSDate()
+		self.memo = memo
+		self.called = called
+		self.latitude = latitude
+		self.longitude = longitude
+	}
 
+//w/o nils
+	convenience init(name:String, phone:String, phoneType: String,
+		photo: NSData, status: String, context: NSManagedObjectContext) {
+			let entity = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: context)!
+			self.init(entity: entity, insertIntoManagedObjectContext: context)
+			self.name = name
+			self.phone = phone
+			self.phoneType = phoneType
+			self.photo = photo
+			self.status = status
+			self.created = NSDate()
+	}
 }

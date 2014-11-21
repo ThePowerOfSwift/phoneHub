@@ -39,7 +39,7 @@ class PostDirectCallViewController: UIViewController {
 	
 	@IBAction func doneTapped(sender: UIBarButtonItem) {
 		let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
-		let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//		let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
 		
 		if nameField.text == "" {
 			contact.name = phoneLabel.text!

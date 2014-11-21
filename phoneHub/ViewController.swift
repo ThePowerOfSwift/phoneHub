@@ -7,25 +7,21 @@
 //
 
 import UIKit
-
+import AddressBookUI
 import CoreData
 
 class ViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
 	
-	var i :Int = 0
-	var ary:[String] = []
-	var aryLabel:String = ""
-	var phoneDict = [String:String]()
+	var textFieldValue:String!
 	var editRow:NSIndexPath!
 	var tblView =  UIView(frame: CGRectZero)
-	var image: UIImage!
-//    var contact: ABMultiValueRef!
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+
+	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-	var textFieldValue:String!
-    override func viewDidLoad() {
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
         fetchedResultsController = getFetchResultsController()
@@ -60,12 +56,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             let vc: EditViewController = segue.destinationViewController as EditViewController
 			let cell = fetchedResultsController.objectAtIndexPath(editRow) as Contacts
 			vc.contact = cell
-        } else if segue.identifier == "showNumPicker" {
-            let vc: NumPickViewController = segue.destinationViewController as NumPickViewController
-//            vc.contact = self.contact
-			vc.phoneDict = self.phoneDict
-			vc.image = self.image
-		} else if segue.identifier == "directCall" {
+        } else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
 			vc.number = textFieldValue
 		} else if segue.identifier == "nameOnly" {
@@ -76,7 +67,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		} else if segue.identifier == "showAB" {
 			let vc: ABNavController = segue.destinationViewController as ABNavController
 		}
-		phoneDict.removeAll()
+
     }
 
 //Start Table
@@ -149,7 +140,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
     @IBAction func tapPlus(sender: UIBarButtonItem) {
         if textField.text == "" {
-			presentViewController(ABNavController(), animated: true, completion: nil)
+			let picker = ABNavController()
+			picker.peoplePickerDelegate = picker
+			presentViewController(picker, animated: true, completion: nil)
 		} else {
 			textFieldValue = textField.text
 			performSegueWithIdentifier("nameOnly", sender: self)

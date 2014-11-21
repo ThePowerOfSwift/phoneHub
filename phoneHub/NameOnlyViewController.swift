@@ -33,14 +33,14 @@ class NameOnlyViewController: UIViewController {
 	@IBAction func doneTapped(sender: UIBarButtonItem) {
 		if phoneField.text != "" {
 			let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
-			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-			
-			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
-			contact.name = nameLabel.text!
-			contact.memo = memo.text
-			contact.phone = phoneField.text!
-			contact.phoneType = "Phone"
-			contact.status = status
+//			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//			
+//			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
+//			contact.name = nameLabel.text!
+//			contact.memo = memo.text
+//			contact.phone = phoneField.text!
+//			contact.phoneType = "Phone"
+//			contact.status = status
 			appDelegate.saveContext()
 		
 			self.navigationController?.popToRootViewControllerAnimated(true)
