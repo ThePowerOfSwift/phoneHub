@@ -13,7 +13,6 @@ import CoreLocation
 
 class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-	var nameLabel:UILabel!
 	var phoneLabel:UILabel!
 	var memoLabel:UILabel!
 	var memoArea:UITextView!
@@ -22,13 +21,17 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	
 	var doneBButton:UIBarButtonItem!
 	
+	var completeButton:UIButton!
+	var callBackButton:UIButton!
+	var leftMessageButton:UIButton!
+	var textedInsteadButton:UIButton!
+	
 	let locationManager = CLLocationManager()
 //	var status:String = "unlabeled"
 	var contact: Contacts!
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-		println("basecontroller")
 
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -36,28 +39,24 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		locationManager.startUpdatingLocation()
 		
 		//map
-		map = MKMapView(frame: CGRectMake(100, 100, 150, 150))
+		map = MKMapView(frame: CGRectMake(20, 100, 150, 150))
 		
-		//nameLabel
-		nameLabel = UILabel(frame: CGRectMake(100, 50, 150, 50))
-		nameLabel.text = contact.name
 	
 		//done Bar Button
 		doneBButton = UIBarButtonItem(title: "Done", style: .Bordered, target: self, action: "doneTapped:")
 		self.navigationItem.rightBarButtonItem = doneBButton
 		
 		//memoLabel
-		memoLabel = UILabel(frame: CGRectMake(100, 250, 150, 50))
+		memoLabel = UILabel(frame: CGRectMake(20, 250, 150, 50))
 		memoLabel.text = "Memo"
 		
 		//memo TextView
-		memoArea = UITextView(frame: CGRectMake(100, 300, 200, 200))
+		memoArea = UITextView(frame: CGRectMake(20, 300, 200, 200))
 		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
 		memoArea.layer.borderWidth = 5
 		
 		//addSubview
 		self.view.addSubview(map)
-		self.view.addSubview(nameLabel)
 		self.view.addSubview(memoLabel)
 		self.view.addSubview(memoArea)
 	

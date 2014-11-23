@@ -12,9 +12,20 @@ import CoreLocation
 
 class TapCallViewController: BaseCallerViewController {
 
+	var nameLabel:UILabel!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		println("tapcallviewcontrller")
+		
+		//nameLabel
+		nameLabel = UILabel(frame: CGRectMake(20, 50, 150, 50))
+		nameLabel.text = contact.name
+
+		
+		//addSubview
+		self.view.addSubview(nameLabel)
+		
+		
 	}
 	
 }
