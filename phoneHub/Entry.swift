@@ -16,8 +16,8 @@ class Entry{
 	var phoneType: String!
 	var status: String!
 	var created: NSDate!
+	var memo: String
 	var called: NSDate?
-	var memo: String?
 	var latitude: Double?
 	var longitude: Double?
 	
@@ -28,9 +28,23 @@ class Entry{
 		self.phoneType = phoneType
 		self.status = status
 		self.created = created
-		self.called = called
 		self.memo = memo
+		self.called = called
 		self.latitude = latitude
 		self.longitude = longitude
 	}
+
+	init(name: String, photo: UIImage, phone: String, phoneType:String, status: String, created: NSDate, memo: String){
+		self.name = name
+		self.photo = photo
+		self.phone = phone
+		self.phoneType = phoneType
+		self.status = status
+		self.created = created
+		self.memo = memo
+		self.called = nil
+		self.latitude = nil
+		self.longitude = nil
+	}
+	
 }

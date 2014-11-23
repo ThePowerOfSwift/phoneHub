@@ -16,18 +16,17 @@ class EditViewController: UIViewController {
 
 	@IBOutlet weak var userPic: UIImageView!
 	@IBOutlet weak var memoArea: UITextView!
-	var fromNumPick:Bool = false
 	var contact: Contacts!
-	let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
 	
 	let managedObjectContext:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-
-    override func viewDidLoad() {
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 //		self.navigationItem.title = "qwer"
 
 		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
 		memoArea.layer.borderWidth = 5
+
 		nameField.text = contact.name
 		phoneLabel.text = contact.phoneType
 		numField.text = contact.phone
@@ -35,29 +34,22 @@ class EditViewController: UIViewController {
 		userPic.image = UIImage(data: contact.photo)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func tappedTryAgain(sender: UIBarButtonItem) {
-//		managedObjectContext.deleteObject(contact)
 		self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func tappedDone(sender: UIBarButtonItem) {
-		contact.name = nameField.text
-		contact.phoneType = phoneLabel.text!
-		contact.phone = numField.text
-		contact.memo = memoArea.text
-		contact.created = NSDate()
-		contact.photo = contact.photo
-		//managedObjectContext.deleteObject()
-		//make a model and only save it as a core data object once your ready
+		contact.update(
+			nameField.text,
+			phone: numField.text!,
+			phoneType: contact.phoneType,
+			photo: contact.photo,
+			memo: memoArea.text,
+			status: contact.status
+		)
+		self.navigationController?.popToRootViewControllerAnimated(true)
 		//uiview.animatewithduration
 		//scrolll view content size
 		//export icon to pdf, create image set, attributes inspector, convert bitmap to vector
-		//create base class
-		appDelegate.saveContext()
-		self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

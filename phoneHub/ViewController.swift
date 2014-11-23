@@ -15,8 +15,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var textField: UITextField!
 	
 	var textFieldValue:String!
-	var editRow:NSIndexPath!
-	var tblView =  UIView(frame: CGRectZero)
+	var cell: ContactCell!
+	var selected: Entry!
+	var targetRow: NSIndexPath!
+	let tblView =  UIView(frame: CGRectZero)
 
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
@@ -38,10 +40,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
 		textField.resignFirstResponder()
 		return true
-		// called when 'return' key pressed. return NO to ignore.
 	}
 
-	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {//nsnotification enter
+	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		self.view.endEditing(true)
 	}
 
@@ -50,24 +51,26 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		if segue.identifier == "postCall" {
             let vc: PostCallViewController = segue.destinationViewController as PostCallViewController
 			let indexPath = tableView.indexPathForSelectedRow()
-			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
-			vc.contact = cell
-        } else if segue.identifier == "showEdit" {
-            let vc: EditViewController = segue.destinationViewController as EditViewController
-			let cell = fetchedResultsController.objectAtIndexPath(editRow) as Contacts
-			vc.contact = cell
-        } else if segue.identifier == "directCall" {
+//			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
+//			vc.contact = cell
+		} else if segue.identifier == "showEdit" {
+			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
+			let vc: EditViewController = segue.destinationViewController as EditViewController
+			vc.contact = theContact
+		} else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
 			vc.number = textFieldValue
 		} else if segue.identifier == "nameOnly" {
 			let vc: NameOnlyViewController = segue.destinationViewController as NameOnlyViewController
-//			println("insegue: \(textField.text)")
-//			println("insegue: \(textFieldValue)")
 			vc.name = textFieldValue
 		} else if segue.identifier == "showAB" {
 			let vc: ABNavController = segue.destinationViewController as ABNavController
+		} else if segue.identifier == "tapToCall" {
+			var targetRow = self.tableView.indexPathForSelectedRow()
+			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
+			let vc:TapCallViewController = segue.destinationViewController as TapCallViewController
+			vc.contact = theContact
 		}
-
     }
 
 //Start Table
@@ -83,11 +86,16 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let theContact = fetchedResultsController.objectAtIndexPath(indexPath) as Contacts
-        var cell: ContactCell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
-        cell.nameLabel.text = theContact.name
-        cell.memoLabel.text = theContact.memo
-		cell.phoneType.text = theContact.phoneType
-		cell.pic.image = UIImage(data: theContact.photo)
+        cell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
+		cell.load(
+			theContact.name,
+			phoneType:theContact.phoneType,
+			memo: theContact.memo,
+			pic: UIImage(data: theContact.photo)!,
+			phone: theContact.phone,
+			status: theContact.status,
+			created: theContact.created
+		)
         return cell
     }
 //End Table
@@ -100,7 +108,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let editAction = UITableViewRowAction(style: .Normal, title: "edit", handler: {
             (action, indexPath) -> Void in
-			self.editRow = indexPath
+			self.targetRow = indexPath
             self.performSegueWithIdentifier("showEdit", sender: self)
             }
         )

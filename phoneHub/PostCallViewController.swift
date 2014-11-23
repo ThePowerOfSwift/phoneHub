@@ -31,8 +31,6 @@ class PostCallViewController: UIViewController, CLLocationManagerDelegate {
 		phoneLabel.text = contact.phone
 		memo.text = contact.memo
 		image.image = UIImage(data: contact.photo)
-		//dial out
-//		println("dialing\ngot:\(contact.phone)\nnow:\(cleaner(contact.phone))")
 		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
 		contact.called = NSDate()
 	}
