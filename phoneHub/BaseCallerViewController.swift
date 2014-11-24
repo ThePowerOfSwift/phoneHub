@@ -12,11 +12,10 @@ import MapKit
 import CoreLocation
 
 class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
-	var phoneLabel:UILabel!
+	
 	var memoLabel:UILabel!
 	var memoArea:UITextView!
-	var image:UIImageView!
+	var image = UIImageView()
 	var map: MKMapView!
 	
 	var doneBButton:UIBarButtonItem!
@@ -32,53 +31,109 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-
+//		self.view.backgroundColor = UIColor.blueColor()
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.startUpdatingLocation()
 		
-		//map
-		map = MKMapView(frame: CGRectMake(20, 100, 150, 150))
-		
-	
 		//done Bar Button
 		doneBButton = UIBarButtonItem(title: "Done", style: .Bordered, target: self, action: "doneTapped:")
 		self.navigationItem.rightBarButtonItem = doneBButton
 		
+		//need to redo frame definitions
+		//image
+		image = UIImageView(frame: CGRectMake(20, 60, 100,100))
+		image.image = UIImage(data: contact.photo)
+		
+		//map
+		map = MKMapView(frame: CGRectMake(20, 190, 255, 175))
+	
+		//status buttons
+		
+		//complete
+		completeButton = UIButton(frame: CGRectMake(20, 190, 150, 75))
+		completeButton.setTitle("Complete", forState: UIControlState.Normal)
+		completeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		completeButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		//call button
+		callBackButton = UIButton(frame: CGRectMake(20, 250, 150, 75))
+		callBackButton.setTitle("Call Back", forState: UIControlState.Normal)
+		callBackButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		callBackButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		//leftMessageButton
+		leftMessageButton = UIButton(frame: CGRectMake(170, 190, 150, 75))
+		leftMessageButton.setTitle("Left Message", forState: UIControlState.Normal)
+		leftMessageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		leftMessageButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
+
+		//textedInsteadButton
+		textedInsteadButton = UIButton(frame: CGRectMake(170, 250, 150, 75))
+		textedInsteadButton.setTitle("Texted Instead", forState: UIControlState.Normal)
+		textedInsteadButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		textedInsteadButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
+
 		//memoLabel
-		memoLabel = UILabel(frame: CGRectMake(20, 250, 150, 50))
+		memoLabel = UILabel(frame: CGRectMake(20, 325, 150, 25))
 		memoLabel.text = "Memo"
 		
 		//memo TextView
-		memoArea = UITextView(frame: CGRectMake(20, 300, 200, 200))
+		memoArea = UITextView(frame: CGRectMake(20, 325, 275, 175))
 		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
 		memoArea.layer.borderWidth = 5
 		
 		//addSubview
-		self.view.addSubview(map)
+		self.view.addSubview(image)
+//		self.view.addSubview(map)
+		self.view.addSubview(completeButton)
+		self.view.addSubview(callBackButton)
+		self.view.addSubview(leftMessageButton)
+		self.view.addSubview(textedInsteadButton)
 		self.view.addSubview(memoLabel)
 		self.view.addSubview(memoArea)
-	
+
 		//dial out
-		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+//		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
 		contact.called = NSDate()
+	}
+	
+	func status(sender: UIButton) {
+		completeButton.backgroundColor = UIColor.whiteColor()
+		callBackButton.backgroundColor = UIColor.whiteColor()
+		leftMessageButton.backgroundColor = UIColor.whiteColor()
+		textedInsteadButton.backgroundColor = UIColor.whiteColor()
+		
+		contact.status = sender.titleLabel!.text!
+		sender.backgroundColor = UIColor.greenColor()
 	}
 
 	func doneTapped(sender: UIBarButtonItem) {
-		//		if status != "Call Back" {contact.status = status}
-		//		else {contact.called = nil}
-		contact.update(
-			contact.name,
-			phone: contact.phone,
-			phoneType: contact.phoneType,
-			photo: contact.photo,
-			memo: memoArea.text,
-			status: contact.status,
-			called: contact.called!,
-			latitude: contact.latitude!,
-			longitude: contact.longitude!
-		)
+		//add conditional to do nothing if no status is selected
+		if contact.status == "Call Back" {
+			contact.update(
+				contact.name,
+				phone: contact.phone,
+				phoneType: contact.phoneType,
+				photo: contact.photo,
+				memo: memoArea.text,
+				status: "reCall"
+			)
+
+		} else {
+			contact.update(
+				contact.name,
+				phone: contact.phone,
+				phoneType: contact.phoneType,
+				photo: contact.photo,
+				memo: memoArea.text,
+				status: contact.status,
+				called: contact.called!,
+				latitude: contact.latitude!,
+				longitude: contact.longitude!
+			)
+		}
 		self.navigationController?.popToRootViewControllerAnimated(true)
 	}
 	
@@ -112,11 +167,6 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		map.addAnnotation(thePin)
 	}
 
-//
-//	@IBAction func status(sender: UIButton) {
-//		status = sender.titleLabel!.text!
-//	}
-//	
 
 	
 	func cleaner(phNum: String) -> String {

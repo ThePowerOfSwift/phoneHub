@@ -26,15 +26,27 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
+//		self.view.backgroundColor = UIColor(netHex: 0x0)
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
-    }
 	
+		// set selected and unselected icons
+		var item:UITabBarItem = self.tabBarController?.tabBar.items?[0] as UITabBarItem
+		item.image = UIImage(named: "contact icon")?.imageWithRenderingMode(.AlwaysOriginal)
+		var item1:UITabBarItem = self.tabBarController?.tabBar.items?[1] as UITabBarItem
+		item1.image = UIImage(named: "whiteFolder")?.imageWithRenderingMode(.AlwaysOriginal)
+
+		for item in self.tabBarController?.tabBar.items as [UITabBarItem] {
+			if let image = item.image {
+				item.image = image.imageWithColor(UIColor(netHex: 0x274A95)).imageWithRenderingMode(.AlwaysOriginal)
+			}
+		}
+    }
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-	tableView.tableFooterView = tblView
-	tableView.backgroundColor = UIColor.whiteColor()
+		tableView.tableFooterView = tblView
+		tableView.backgroundColor = UIColor.whiteColor()
 	}
 	
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -81,6 +93,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRowsInSection = fetchedResultsController.sections![section].numberOfObjects
+		if numberOfRowsInSection > 0 {
+			self.navigationController?.tabBarItem.badgeValue = "\(numberOfRowsInSection)";
+		}
+		if numberOfRowsInSection == 0 {
+			self.navigationController?.tabBarItem.badgeValue = nil;
+		}
+
         return numberOfRowsInSection!
     }
 

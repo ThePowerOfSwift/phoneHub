@@ -21,7 +21,7 @@ class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigati
 		let label = ABMultiValueCopyLabelAtIndex(record, index).takeRetainedValue()
 		
 		//stage data for new contact entry
-		let profilePic = UIImage(named: "152 - iPad")
+		let profilePic = UIImage(named: "TabContactImage")
 		let name = ABRecordCopyCompositeName(person).takeRetainedValue() as String
 		let phone = ABMultiValueCopyValueAtIndex(record,index).takeRetainedValue() as String
 		let phoneType = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as String

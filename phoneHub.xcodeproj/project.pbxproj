@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */; };
-		F6B5768C1A132D170022A835 /* 152 - iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B5768B1A132D170022A835 /* 152 - iPad.png */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
 		F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BAA1A07179E0027567B /* ViewController.swift */; };
@@ -22,6 +21,7 @@
 		F6DBC7671A1FCC5B007F71F6 /* BaseCallerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC7661A1FCC5B007F71F6 /* BaseCallerViewController.swift */; };
 		F6DBC79D1A2180BF007F71F6 /* TapCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC79C1A2180BF007F71F6 /* TapCallViewController.swift */; };
 		F6DBC79F1A21A9CB007F71F6 /* fromLemonade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC79E1A21A9CB007F71F6 /* fromLemonade.swift */; };
+		F6DBC7A51A22F622007F71F6 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */; };
 		F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */; };
 		F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */; };
 		F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */; };
@@ -45,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABNavController.swift; path = ../ABNavController.swift; sourceTree = "<group>"; };
-		F6B5768B1A132D170022A835 /* 152 - iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "152 - iPad.png"; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C02BA51A07179E0027567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		F6DBC7661A1FCC5B007F71F6 /* BaseCallerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCallerViewController.swift; sourceTree = "<group>"; };
 		F6DBC79C1A2180BF007F71F6 /* TapCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCallViewController.swift; sourceTree = "<group>"; };
 		F6DBC79E1A21A9CB007F71F6 /* fromLemonade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fromLemonade.swift; path = ../fromLemonade.swift; sourceTree = "<group>"; };
+		F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = ../UIExtensions.swift; sourceTree = "<group>"; };
 		F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDirectCallViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOnlyViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +139,7 @@
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
 				F6E1F6D21A190E9700349714 /* Contacts.swift */,
+				F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */,
 				F6C02BA31A07179E0027567B /* Supporting Files */,
 			);
 			path = phoneHub;
@@ -147,7 +148,6 @@
 		F6C02BA31A07179E0027567B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F6B5768B1A132D170022A835 /* 152 - iPad.png */,
 				F6C02BA41A07179E0027567B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -251,7 +251,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B5768C1A132D170022A835 /* 152 - iPad.png in Resources */,
 				F6C02BAE1A07179E0027567B /* Main.storyboard in Resources */,
 				F6C02BB01A07179E0027567B /* Images.xcassets in Resources */,
 			);
@@ -279,6 +278,7 @@
 				F6E1F6BD1A17094100349714 /* ArchiveDetailViewController.swift in Sources */,
 				F6DBC79F1A21A9CB007F71F6 /* fromLemonade.swift in Sources */,
 				F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */,
+				F6DBC7A51A22F622007F71F6 /* UIExtensions.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
 				F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */,

@@ -13,10 +13,15 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+		UINavigationBar.appearance().barTintColor = UIColor(netHex: 0x274A95)
+		UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+		
+		UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedBack")
+		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex: 0x274A95)], forState:.Normal)
+		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Selected)
+		application.statusBarStyle = .LightContent
         return true
     }
 

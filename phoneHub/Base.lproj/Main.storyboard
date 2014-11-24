@@ -57,18 +57,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CUu-Eq-EBy">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Call" id="mzj-eg-b60">
-                            <connections>
-                                <action selector="tapCall:" destination="gZN-cZ-udX" id="fMk-0Q-yDM"/>
-                            </connections>
-                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="Oe4-Ge-e4B">
-                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <rect key="frame" x="17.5" y="7" width="252" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qtM-5K-0sn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="tapPlus:" destination="gZN-cZ-udX" id="89i-0Q-dbJ"/>
                             </connections>
@@ -84,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukU-ul-pzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973" y="-338"/>
+            <point key="canvasLocation" x="972" y="-338"/>
         </scene>
         <!--edit-->
         <scene sceneID="Qhr-3M-QgT">
@@ -184,7 +180,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPI-nA-p4U">
-                                <rect key="frame" x="37" y="109" width="70" height="65"/>
+                                <rect key="frame" x="16" y="85" width="70" height="65"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Gy-gk-rpZ">
                                 <rect key="frame" x="40" y="383" width="240" height="128"/>
@@ -228,12 +224,6 @@
                                     <action selector="status:" destination="vgV-Iz-1W4" eventType="touchUpInside" id="40V-CE-dYl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8G-xm-YaL">
-                                <rect key="frame" x="157" y="102" width="100" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amw-YV-h77">
                                 <rect key="frame" x="151" y="135" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -241,6 +231,12 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-Dq-0Jd">
                                 <rect key="frame" x="157" y="173" width="100" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8G-xm-YaL">
+                                <rect key="frame" x="117" y="85" width="100" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -606,11 +602,11 @@
             </objects>
             <point key="canvasLocation" x="2252" y="-1014"/>
         </scene>
-        <!--Item-->
+        <!--Contacts-->
         <scene sceneID="zVf-4E-UZU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xgQ-Gq-7dd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Jtr-NE-xRL"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" id="Jtr-NE-xRL"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Htf-bt-Nfx">
@@ -646,11 +642,11 @@
             </objects>
             <point key="canvasLocation" x="165" y="-18"/>
         </scene>
-        <!--Item-->
+        <!--Archive-->
         <scene sceneID="OoH-SZ-8Ci">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="guI-lm-qWd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fLU-OJ-RD9"/>
+                    <tabBarItem key="tabBarItem" title="Archive" id="fLU-OJ-RD9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="huQ-4R-oGN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
