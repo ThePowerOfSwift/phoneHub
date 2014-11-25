@@ -43,20 +43,20 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 				item.image = image.imageWithColor(UIColor(netHex: 0x274A95)).imageWithRenderingMode(.AlwaysOriginal)
 			}
 		}
-//		refresh()
+		refresh()
     }
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-		tableView.backgroundColor = UIColor(netHex: 0x274A95)//0x30A5F8)
+//		tableView.backgroundColor = UIColor(netHex: 0x30A5FF)
 	}
 	
-//	func refresh() {
-//		view.backgroundColor = UIColor.clearColor()
-//		var backgroundLayer = colors.gl
-//		backgroundLayer.frame = view.frame
-//		view.layer.insertSublayer(backgroundLayer, atIndex: 0)
-//	}
+	func refresh() {
+		tableView.backgroundColor = UIColor.clearColor()
+		var backgroundLayer = colors.gl
+		backgroundLayer.frame = tableView.frame
+		tableView.layer.insertSublayer(backgroundLayer, atIndex: 0)
+	}
 
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
 		textField.resignFirstResponder()
@@ -126,7 +126,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			status: theContact.status,
 			created: theContact.created
 		)
-		cell.pic.image = UIImage(data: theContact.photo)?.imageWithColor(UIColor.grayColor())
+		cell.pic.image = UIImage(data: theContact.photo)?.imageWithRenderingMode(.AlwaysOriginal)
 		cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
 		cell.accessoryType = .None
 		

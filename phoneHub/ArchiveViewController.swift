@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreData
+import QuartzCore
 
 class ArchiveViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate  {
 
+	let colors = Colors()
 	var tblView =  UIView(frame: CGRectZero)
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
@@ -21,8 +23,14 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		fetchedResultsController.delegate = self
 		fetchedResultsController.performFetch(nil)
 
+		refresh()
     }
-	
+	func refresh() {
+		tableView.backgroundColor = UIColor.clearColor()
+		var backgroundLayer = colors.gl
+		backgroundLayer.frame = tableView.frame
+		tableView.layer.insertSublayer(backgroundLayer, atIndex: 0)
+	}
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
