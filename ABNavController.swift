@@ -13,15 +13,21 @@ import CoreData
 class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigationControllerDelegate{
 
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-	
+
 	func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
 		//save AB record
 		let index = ABMultiValueGetIndexForIdentifier(ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue(), identifier)
 		let record: AnyObject = ABRecordCopyValue(person, property).takeRetainedValue()
 		let label = ABMultiValueCopyLabelAtIndex(record, index).takeRetainedValue()
+		var profilePic:UIImage!
 		
 		//stage data for new contact entry
-		let profilePic = UIImage(named: "TabContactImage")
+		var imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)?.takeRetainedValue()
+		if imgData != nil {
+			profilePic = UIImage(data:imgData!)
+		} else {
+			profilePic = UIImage(named: "contact iconNew")?.imageWithColor(UIColor.grayColor())
+		}
 		let name = ABRecordCopyCompositeName(person).takeRetainedValue() as String
 		let phone = ABMultiValueCopyValueAtIndex(record,index).takeRetainedValue() as String
 		let phoneType = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as String

@@ -13,6 +13,7 @@ class NameOnlyViewController: UIViewController {
 
 	@IBOutlet weak var image: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var phoneField: UITextField!
 	@IBOutlet weak var memo: UITextView!
 	let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -23,24 +24,32 @@ class NameOnlyViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.hidesBackButton = true
-		memo.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
-		memo.layer.borderWidth = 5
-
+		self.view.backgroundColor = UIColor(netHex: 0x274A95)
+		memo.layer.borderColor = (UIColor.whiteColor()).CGColor
+		memo.layer.borderWidth = 2
+		memo.backgroundColor = UIColor(netHex: 0x274A95)
+		memo.textColor = UIColor.whiteColor()
+		
 		nameLabel.text = name
-		image.image = UIImage(named: "152 - iPad")
+		nameLabel.textColor = UIColor.whiteColor()
+
+		phoneLabel.textColor = UIColor.whiteColor()
+		
+		image.image = UIImage(named: "contact iconNew")?.imageWithColor(UIColor.whiteColor())
     }
 
 	@IBAction func doneTapped(sender: UIBarButtonItem) {
 		if phoneField.text != "" {
 			let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
-//			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-//			
-//			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
-//			contact.name = nameLabel.text!
-//			contact.memo = memo.text
-//			contact.phone = phoneField.text!
-//			contact.phoneType = "Phone"
-//			contact.status = status
+			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+			
+			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
+			contact.name = nameLabel.text!
+			contact.memo = memo.text
+			contact.phone = phoneField.text!
+			contact.phoneType = "phone"
+			contact.status = status
+			contact.created = NSDate()
 			appDelegate.saveContext()
 		
 			self.navigationController?.popToRootViewControllerAnimated(true)

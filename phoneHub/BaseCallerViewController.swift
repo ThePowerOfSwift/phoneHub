@@ -26,16 +26,21 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	var textedInsteadButton:UIButton!
 	
 	let locationManager = CLLocationManager()
-//	var status:String = "unlabeled"
 	var contact: Contacts!
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-//		self.view.backgroundColor = UIColor.blueColor()
+		self.view.backgroundColor = UIColor(netHex: 0x274A95)
+		self.navigationItem.hidesBackButton = true
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.startUpdatingLocation()
+
+		//dial out
+		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+		contact.called = NSDate()
+
 		
 		//done Bar Button
 		doneBButton = UIBarButtonItem(title: "Done", style: .Bordered, target: self, action: "doneTapped:")
@@ -43,9 +48,9 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		
 		//need to redo frame definitions
 		//image
-		image = UIImageView(frame: CGRectMake(20, 60, 100,100))
-		image.image = UIImage(data: contact.photo)
-		
+		image = UIImageView(frame: CGRectMake(20, 80, 100,100))
+		image.image = UIImage(data: contact.photo)?.imageWithColor(UIColor.grayColor())
+		image.backgroundColor = UIColor.greenColor()
 		//map
 		map = MKMapView(frame: CGRectMake(20, 190, 255, 175))
 	
@@ -81,60 +86,77 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		
 		//memo TextView
 		memoArea = UITextView(frame: CGRectMake(20, 325, 275, 175))
-		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
-		memoArea.layer.borderWidth = 5
+		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
+		memoArea.layer.borderWidth = 2
+		memoArea.backgroundColor = UIColor(netHex: 0x274A95)
 		
+		//set label color
+		completeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+		callBackButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+		leftMessageButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+		textedInsteadButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+		
+		completeButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
+		callBackButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
+		leftMessageButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
+		textedInsteadButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
+
+		
+		memoLabel.textColor = UIColor.whiteColor()
+		memoArea.textColor = UIColor.whiteColor()
+		
+		memoArea.text = contact.memo
 		//addSubview
 		self.view.addSubview(image)
 //		self.view.addSubview(map)
-		self.view.addSubview(completeButton)
-		self.view.addSubview(callBackButton)
-		self.view.addSubview(leftMessageButton)
-		self.view.addSubview(textedInsteadButton)
 		self.view.addSubview(memoLabel)
 		self.view.addSubview(memoArea)
 
-		//dial out
-//		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
-		contact.called = NSDate()
 	}
 	
 	func status(sender: UIButton) {
-		completeButton.backgroundColor = UIColor.whiteColor()
-		callBackButton.backgroundColor = UIColor.whiteColor()
-		leftMessageButton.backgroundColor = UIColor.whiteColor()
-		textedInsteadButton.backgroundColor = UIColor.whiteColor()
+		completeButton.backgroundColor = UIColor(netHex: 0x274A95)
+		callBackButton.backgroundColor = UIColor(netHex: 0x274A95)
+		leftMessageButton.backgroundColor = UIColor(netHex: 0x274A95)
+		textedInsteadButton.backgroundColor = UIColor(netHex: 0x274A95)
+		completeButton.selected = false
+		callBackButton.selected = false
+		leftMessageButton.selected = false
+		textedInsteadButton.selected = false
 		
 		contact.status = sender.titleLabel!.text!
-		sender.backgroundColor = UIColor.greenColor()
+		sender.backgroundColor = UIColor.whiteColor()
+		sender.selected = true
 	}
 
 	func doneTapped(sender: UIBarButtonItem) {
 		//add conditional to do nothing if no status is selected
-		if contact.status == "Call Back" {
-			contact.update(
-				contact.name,
-				phone: contact.phone,
-				phoneType: contact.phoneType,
-				photo: contact.photo,
-				memo: memoArea.text,
-				status: "reCall"
-			)
-
-		} else {
-			contact.update(
-				contact.name,
-				phone: contact.phone,
-				phoneType: contact.phoneType,
-				photo: contact.photo,
-				memo: memoArea.text,
-				status: contact.status,
-				called: contact.called!,
-				latitude: contact.latitude!,
-				longitude: contact.longitude!
-			)
+		if contact.status == "Call Back" || contact.status == "Complete" || contact.status == "Left Message" || contact.status == "Texted Instead"{
+			if contact.status == "Call Back" {
+				contact.update(
+					contact.name,
+					phone: contact.phone,
+					phoneType: contact.phoneType,
+					photo: contact.photo,
+					memo: memoArea.text,
+					status: "reCall"
+				)
+				
+			} else {
+				contact.update(
+					contact.name,
+					phone: contact.phone,
+					phoneType: contact.phoneType,
+					photo: contact.photo,
+					memo: memoArea.text,
+					status: contact.status,
+					called: contact.called!,
+					latitude: contact.latitude!,
+					longitude: contact.longitude!
+				)
+			}
+			self.navigationController?.popToRootViewControllerAnimated(true)
 		}
-		self.navigationController?.popToRootViewControllerAnimated(true)
 	}
 	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -170,13 +192,13 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 
 	
 	func cleaner(phNum: String) -> String {
-		var cleaned = phNum.stringByReplacingOccurrencesOfString("[\\(\\)\\-]", withString: "", options: .RegularExpressionSearch)
+		var cleaned = phNum.stringByReplacingOccurrencesOfString("[\\(\\)]", withString: "", options: .RegularExpressionSearch)
 		var final: String = ""
 		var count: Int = 0
 		for char in cleaned {
-			if String(char) == "1" || String(char) == "2" || String(char) == "3" || String(char) == "4" || String(char) == "5" || String(char) == "6" || String(char) == "7" || String(char) == "8" || String(char) == "8" || String(char) == "0" {
+			if String(char) == "1" || String(char) == "2" || String(char) == "3" || String(char) == "4" || String(char) == "5" || String(char) == "6" || String(char) == "7" || String(char) == "8" || String(char) == "8" || String(char) == "0"{
 				final.append(char)
-			}
+			} else if String(char) == "+" {final.append(char)}
 			count++
 		}
 		return final

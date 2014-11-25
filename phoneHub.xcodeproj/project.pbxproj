@@ -22,6 +22,8 @@
 		F6DBC79D1A2180BF007F71F6 /* TapCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC79C1A2180BF007F71F6 /* TapCallViewController.swift */; };
 		F6DBC79F1A21A9CB007F71F6 /* fromLemonade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC79E1A21A9CB007F71F6 /* fromLemonade.swift */; };
 		F6DBC7A51A22F622007F71F6 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */; };
+		F6DBC7A71A23ABBA007F71F6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC7A61A23ABBA007F71F6 /* Colors.swift */; };
+		F6DBC7A91A23DF26007F71F6 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC7A81A23DF26007F71F6 /* EditEntryViewController.swift */; };
 		F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */; };
 		F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */; };
 		F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */; };
@@ -63,6 +65,8 @@
 		F6DBC79C1A2180BF007F71F6 /* TapCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCallViewController.swift; sourceTree = "<group>"; };
 		F6DBC79E1A21A9CB007F71F6 /* fromLemonade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fromLemonade.swift; path = ../fromLemonade.swift; sourceTree = "<group>"; };
 		F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = ../UIExtensions.swift; sourceTree = "<group>"; };
+		F6DBC7A61A23ABBA007F71F6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F6DBC7A81A23DF26007F71F6 /* EditEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
 		F6E1F6AE1A15BC5D00349714 /* PostDirectCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDirectCallViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOnlyViewController.swift; sourceTree = "<group>"; };
 		F6E1F6B61A16BF8600349714 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				F6C02BAA1A07179E0027567B /* ViewController.swift */,
 				F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */,
 				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
+				F6DBC7A81A23DF26007F71F6 /* EditEntryViewController.swift */,
 				F6DBC7661A1FCC5B007F71F6 /* BaseCallerViewController.swift */,
 				F6DBC79C1A2180BF007F71F6 /* TapCallViewController.swift */,
 				F6DBC79E1A21A9CB007F71F6 /* fromLemonade.swift */,
@@ -140,6 +145,7 @@
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
 				F6E1F6D21A190E9700349714 /* Contacts.swift */,
 				F6DBC7A41A22F622007F71F6 /* UIExtensions.swift */,
+				F6DBC7A61A23ABBA007F71F6 /* Colors.swift */,
 				F6C02BA31A07179E0027567B /* Supporting Files */,
 			);
 			path = phoneHub;
@@ -271,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */,
+				F6DBC7A71A23ABBA007F71F6 /* Colors.swift in Sources */,
 				F6CFBD981A1C2C2100A81CF8 /* Entry.swift in Sources */,
 				F6DBC7671A1FCC5B007F71F6 /* BaseCallerViewController.swift in Sources */,
 				F6C02BCB1A0723800027567B /* ContactCell.swift in Sources */,
@@ -281,6 +288,7 @@
 				F6DBC7A51A22F622007F71F6 /* UIExtensions.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
+				F6DBC7A91A23DF26007F71F6 /* EditEntryViewController.swift in Sources */,
 				F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */,
 				F6E1F6D31A190E9700349714 /* Contacts.swift in Sources */,
 				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,

@@ -26,7 +26,7 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-		tableView.backgroundColor = UIColor.whiteColor()
+		tableView.backgroundColor = UIColor(netHex: 0x274A95)
 	}
 
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
@@ -60,6 +60,8 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		cell.memoLabel.text = theContact.memo
 		cell.phoneType.text = theContact.phoneType
 		cell.pic.image = UIImage(data: theContact.photo)
+		cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+		cell.accessoryType = .None
 		return cell
 	}
 //End Table
@@ -76,14 +78,14 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 			theContact.called = nil
 			}
 		)
-		addAction.backgroundColor = UIColor.greenColor()
+		addAction.backgroundColor = UIColor(netHex: 0xF5A623)
 		
 		let deleteAction = UITableViewRowAction(style: .Normal, title: "delete", handler: {
 			(action, indexPath) -> Void in
 			self.tableView(self.tableView, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
 			}
 		)
-		deleteAction.backgroundColor = UIColor.redColor()
+		deleteAction.backgroundColor = UIColor(netHex: 0xC7262A)
 		
 		return [deleteAction, addAction]
 		

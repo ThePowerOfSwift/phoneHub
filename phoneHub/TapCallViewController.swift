@@ -21,13 +21,19 @@ class TapCallViewController: BaseCallerViewController {
 		//nameLabel
 		nameLabel = UILabel(frame: CGRectMake(140, 70, 150, 50))
 		nameLabel.text = contact.name
-
+		nameLabel.textColor = UIColor.whiteColor()
 		//phoneLabel
 		phoneLabel = UILabel(frame: CGRectMake(140, 120, 150, 50))
 		phoneLabel.text = contact.phone
-		
+		phoneLabel.textColor = UIColor.whiteColor()
 		//addSubview
 		self.view.addSubview(nameLabel)
 		self.view.addSubview(phoneLabel)
+		
+		self.view.addSubview(completeButton)
+		self.view.addSubview(callBackButton)
+		self.view.addSubview(leftMessageButton)
+		self.view.addSubview(textedInsteadButton)
+
 	}
 }

@@ -24,12 +24,19 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
 //		self.navigationItem.title = "qwer"
 
-		memoArea.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0, alpha: 1.0 )).CGColor;
-		memoArea.layer.borderWidth = 5
-
+		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
+		memoArea.layer.borderWidth = 2
+//		memoArea.textColor = UIColor.whiteColor()
+//		memoArea.backgroundColor = UIColor(netHex: 0x274A95)
+//		
 		nameField.text = contact.name
+//		nameField.textColor = UIColor.whiteColor()
+		
 		phoneLabel.text = contact.phoneType
+		
 		numField.text = contact.phone
+//		numField.textColor = UIColor.whiteColor()
+		
 		memoArea.text = contact.memo
 		userPic.image = UIImage(data: contact.photo)
     }

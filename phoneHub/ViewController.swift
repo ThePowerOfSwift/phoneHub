@@ -9,6 +9,7 @@
 import UIKit
 import AddressBookUI
 import CoreData
+import QuartzCore
 
 class ViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
@@ -19,36 +20,44 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var selected: Entry!
 	var targetRow: NSIndexPath!
 	let tblView =  UIView(frame: CGRectZero)
-
+	let colors = Colors()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
-//		self.view.backgroundColor = UIColor(netHex: 0x0)
+
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
 	
 		// set selected and unselected icons
 		var item:UITabBarItem = self.tabBarController?.tabBar.items?[0] as UITabBarItem
-		item.image = UIImage(named: "contact icon")?.imageWithRenderingMode(.AlwaysOriginal)
+		item.image = UIImage(named: "contact iconNew")?.imageWithRenderingMode(.AlwaysOriginal)
 		var item1:UITabBarItem = self.tabBarController?.tabBar.items?[1] as UITabBarItem
-		item1.image = UIImage(named: "whiteFolder")?.imageWithRenderingMode(.AlwaysOriginal)
+		item1.image = UIImage(named: "folderNew")?.imageWithRenderingMode(.AlwaysOriginal)
 
 		for item in self.tabBarController?.tabBar.items as [UITabBarItem] {
 			if let image = item.image {
 				item.image = image.imageWithColor(UIColor(netHex: 0x274A95)).imageWithRenderingMode(.AlwaysOriginal)
 			}
 		}
+//		refresh()
     }
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-		tableView.backgroundColor = UIColor.whiteColor()
+		tableView.backgroundColor = UIColor(netHex: 0x274A95)//0x30A5F8)
 	}
 	
+//	func refresh() {
+//		view.backgroundColor = UIColor.clearColor()
+//		var backgroundLayer = colors.gl
+//		backgroundLayer.frame = view.frame
+//		view.layer.insertSublayer(backgroundLayer, atIndex: 0)
+//	}
+
 	func textFieldShouldReturn(textField: UITextField!) -> Bool {
 		textField.resignFirstResponder()
 		return true
@@ -63,11 +72,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		if segue.identifier == "postCall" {
             let vc: PostCallViewController = segue.destinationViewController as PostCallViewController
 			let indexPath = tableView.indexPathForSelectedRow()
-//			let cell = fetchedResultsController.objectAtIndexPath(indexPath!) as Contacts
-//			vc.contact = cell
 		} else if segue.identifier == "showEdit" {
 			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
 			let vc: EditViewController = segue.destinationViewController as EditViewController
+			vc.contact = theContact
+		} else if segue.identifier == "edit" {
+			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
+			let vc: EditEntryViewController = segue.destinationViewController as EditEntryViewController
 			vc.contact = theContact
 		} else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
@@ -115,7 +126,11 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			status: theContact.status,
 			created: theContact.created
 		)
-        return cell
+		cell.pic.image = UIImage(data: theContact.photo)?.imageWithColor(UIColor.grayColor())
+		cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+		cell.accessoryType = .None
+		
+		return cell
     }
 //End Table
 
@@ -131,14 +146,14 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
             self.performSegueWithIdentifier("showEdit", sender: self)
             }
         )
-        editAction.backgroundColor = UIColor.greenColor()
+        editAction.backgroundColor = UIColor(netHex: 0xF5A623)
         
         let deleteAction = UITableViewRowAction(style: .Normal, title: "delete", handler: {
             (action, indexPath) -> Void in
             self.tableView(self.tableView, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
             }
         )
-        deleteAction.backgroundColor = UIColor.redColor()
+        deleteAction.backgroundColor = UIColor(netHex: 0xC7262A)
 		
         return [deleteAction, editAction]
         
