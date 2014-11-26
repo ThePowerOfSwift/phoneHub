@@ -24,8 +24,8 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
         super.viewDidLoad()
 		self.view.backgroundColor = UIColor(netHex: 0x274A95)
 		let dateFormatter = NSDateFormatter()
-		dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-		dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+		dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+		dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
 		dateFormatter.timeZone = NSTimeZone()
 		let localDate = dateFormatter.stringFromDate(ArchCell.called!)
 		

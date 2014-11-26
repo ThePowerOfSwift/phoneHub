@@ -26,12 +26,12 @@ class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigati
 		if imgData != nil {
 			profilePic = UIImage(data:imgData!)
 		} else {
-			profilePic = UIImage(named: "contact iconNew")?.imageWithColor(UIColor.whiteColor())
+			profilePic = UIImage(named:  "profpicPDFWhite")
 		}
 		let name = ABRecordCopyCompositeName(person).takeRetainedValue() as String
 		let phone = ABMultiValueCopyValueAtIndex(record,index).takeRetainedValue() as String
 		let phoneType = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as String
-		
+		println("profile pic: \(profilePic)")
 		//create new contact entry
 		let newEntry:Contacts = Contacts(
 			name: name,

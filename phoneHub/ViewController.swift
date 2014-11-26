@@ -20,7 +20,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	var selected: Entry!
 	var targetRow: NSIndexPath!
 	let tblView =  UIView(frame: CGRectZero)
-	let colors = Colors()
+	let colors = Colors(top: UIColor(netHex: 0xD7D7CF), bot: UIColor(netHex: 0xE5C49A))
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 	
@@ -40,7 +40,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 
 		for item in self.tabBarController?.tabBar.items as [UITabBarItem] {
 			if let image = item.image {
-				item.image = image.imageWithColor(UIColor(netHex: 0x274A95)).imageWithRenderingMode(.AlwaysOriginal)
+				item.image = image.imageWithColor(UIColor(netHex: 0x21ACBB)).imageWithRenderingMode(.AlwaysOriginal)
 			}
 		}
 		refresh()
@@ -48,7 +48,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-//		tableView.backgroundColor = UIColor(netHex: 0x30A5FF)
+		tableView.backgroundColor = UIColor(netHex: 0xE5C49A)
 	}
 	
 	func refresh() {
@@ -128,6 +128,13 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			created: theContact.created
 		)
 		cell.pic.image = UIImage(data: theContact.photo)
+		cell.pic.contentMode = .ScaleAspectFit
+		cell.pic.layer.cornerRadius = cell.pic.frame.size.width / 2
+		cell.pic.clipsToBounds = true
+		cell.pic.layer.borderColor = UIColor.whiteColor().CGColor
+		cell.pic.layer.borderWidth = 1
+
+		
 		if indexPath.row % 2 == 0{
 			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
 			cell.accessoryType = .None

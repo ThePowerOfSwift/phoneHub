@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import QuartzCore
 
-class EditViewController: UIViewController, UITextViewDelegate {
+class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var nameField: UITextField!
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var numField: UITextField!
@@ -17,7 +18,7 @@ class EditViewController: UIViewController, UITextViewDelegate {
 	@IBOutlet weak var userPic: UIImageView!
 	@IBOutlet weak var memoArea: UITextView!
 	var contact: Contacts!
-	
+	let colors = Colors(top: UIColor.whiteColor(), bot: UIColor.grayColor())
 	@IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
 	
 	let managedObjectContext:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -25,16 +26,52 @@ class EditViewController: UIViewController, UITextViewDelegate {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.title = "Edit"
-
-		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
-		memoArea.layer.borderWidth = 2
+		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
+//		memoArea.layer.borderWidth = 2
+		
 		nameField.text = contact.name
+		nameField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+//		nameField.layer.shadowOpacity = 1.0;
+//		nameField.layer.shadowRadius = 0.0;
+//		nameField.layer.shadowColor = UIColor.blueColor().CGColor;
+//		nameField.layer.shadowOffset = CGSizeMake(-1.0, 1.0);
+		
+		
 		phoneLabel.text = contact.phoneType
-		numField.text = contact.phone
-		memoArea.text = contact.memo
-		userPic.image = UIImage(data: contact.photo)
-    }
 
+		numField.text = contact.phone
+		numField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		memoArea.text = contact.memo
+		memoArea.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		userPic.image = UIImage(data: contact.photo)
+		view.backgroundColor = UIColor(netHex: 0xE5C49A)
+//		refresh()
+    }
+	
+	func refresh() {
+		view.backgroundColor = UIColor.clearColor()
+		var backgroundLayer = colors.gl
+		backgroundLayer.frame = view.frame
+		view.layer.insertSublayer(backgroundLayer, atIndex: 0)
+	}
+//Start toggle box colors
+	func textFieldDidBeginEditing(textField: UITextField) {
+		textField.backgroundColor = UIColor.greenColor()
+	}
+	
+	func textFieldDidEndEditing(textField: UITextField) {
+		textField.backgroundColor = UIColor.redColor()
+	}
+	
+	func textViewDidBeginEditing(textView: UITextView) {
+		textView.backgroundColor = UIColor.greenColor()
+	}
+	
+	func textViewDidEndEditing(textView: UITextView) {
+		textView.backgroundColor = UIColor.redColor()
+	}
+//End toggle box colors
     @IBAction func tappedDone(sender: UIBarButtonItem) {
 		contact.update(
 			nameField.text,
@@ -50,7 +87,7 @@ class EditViewController: UIViewController, UITextViewDelegate {
 		//export icon to pdf, create image set, attributes inspector, convert bitmap to vector
     }
 	
-	// MARK: - Lifecycle
+// MARK: - Lifecycle
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)

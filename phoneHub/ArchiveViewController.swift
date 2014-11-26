@@ -12,7 +12,7 @@ import QuartzCore
 
 class ArchiveViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate  {
 
-	let colors = Colors()
+	let colors = Colors(top: UIColor.whiteColor(), bot: UIColor(netHex: 0x30A5FF))
 	var tblView =  UIView(frame: CGRectZero)
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
@@ -34,7 +34,7 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-		tableView.backgroundColor = UIColor(netHex: 0x274A95)
+		tableView.backgroundColor = UIColor(netHex: 0x30A5FF)
 	}
 
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {

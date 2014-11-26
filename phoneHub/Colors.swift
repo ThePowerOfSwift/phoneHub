@@ -15,10 +15,10 @@ class Colors {
 	let colorBottom = UIColor(netHex: 0x30A5FF).CGColor
 	
 	let gl: CAGradientLayer
-	
-	init() {
+//	set switch cases instead
+	init(top: UIColor, bot: UIColor) {
 		gl = CAGradientLayer()
-		gl.colors = [ colorTop, colorBottom]
+		gl.colors = [ top.CGColor, bot.CGColor]
 		gl.locations = [ -1.5, 1.0]
 	}
 	
