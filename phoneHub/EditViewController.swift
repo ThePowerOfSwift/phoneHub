@@ -32,6 +32,7 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		
 		nameField.text = contact.name
 		nameField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		nameField.delegate = self
 //		nameField.layer.shadowOpacity = 1.0;
 //		nameField.layer.shadowRadius = 0.0;
 //		nameField.layer.shadowColor = UIColor.blueColor().CGColor;
@@ -42,8 +43,10 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
 		numField.text = contact.phone
 		numField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		numField.delegate = self
 		memoArea.text = contact.memo
 		memoArea.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		memoArea.delegate = self
 		userPic.image = UIImage(data: contact.photo)
 		view.backgroundColor = UIColor(netHex: 0xE5C49A)
 //		refresh()
@@ -66,12 +69,18 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	
 	func textViewDidBeginEditing(textView: UITextView) {
 		textView.backgroundColor = UIColor.greenColor()
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
 		textView.backgroundColor = UIColor.redColor()
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
 	}
 //End toggle box colors
+	
     @IBAction func tappedDone(sender: UIBarButtonItem) {
 		contact.update(
 			nameField.text,
@@ -82,38 +91,32 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 			status: contact.status
 		)
 		self.navigationController?.popToRootViewControllerAnimated(true)
-		//uiview.animatewithduration
-		//scrolll view content size
-		//export icon to pdf, create image set, attributes inspector, convert bitmap to vector
     }
 	
 // MARK: - Lifecycle
 	
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-	}
+//	override func viewWillAppear(animated: Bool) {
+//		super.viewWillAppear(animated)
+//		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+//		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+//	}
+//	
+//	override func viewWillDisappear(animated: Bool) {
+//		super.viewWillDisappear(animated)
+//		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+//		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+//	}
 	
 	// MARK: - Notifications
 	
 	func keyboardWillShowNotification(notification: NSNotification) {
 		updateBottomLayoutConstraintWithNotification(notification)
-//		self.navigationController?.navigationBar.hidden = true
 	}
 	
 	func keyboardWillHideNotification(notification: NSNotification) {
 		updateBottomLayoutConstraintWithNotification(notification)
-//		self.navigationController?.navigationBar.hidden = false
 	}
-	
-	
+
 	// MARK: - Private
 	
 	func updateBottomLayoutConstraintWithNotification(notification: NSNotification) {
@@ -135,10 +138,10 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	
 	// MARK: - UITextViewDelegate
 	
-	func textViewShouldReturn(textView: UITextView) -> Bool {
-		textView.resignFirstResponder()
-		return true
-	}
+//	func textViewShouldReturn(textView: UITextView) -> Bool {
+//		textView.resignFirstResponder()
+//		return true
+//	}
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		self.view.endEditing(true)
 	}
