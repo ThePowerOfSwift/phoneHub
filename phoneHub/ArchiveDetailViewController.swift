@@ -29,7 +29,8 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 		dateFormatter.timeZone = NSTimeZone()
 		let localDate = dateFormatter.stringFromDate(ArchCell.called!)
 		
-		pic.image = UIImage(data: ArchCell.photo)?.imageWithColor(UIColor.grayColor())
+		pic.image = UIImage(data: ArchCell.photo)
+		
 		nameLabel.text = ArchCell.name
 		nameLabel.textColor = UIColor.whiteColor()
 		

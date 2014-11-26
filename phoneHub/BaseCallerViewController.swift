@@ -49,8 +49,8 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		//need to redo frame definitions
 		//image
 		image = UIImageView(frame: CGRectMake(20, 80, 100,100))
-		image.image = UIImage(data: contact.photo)?.imageWithColor(UIColor.grayColor())
-		image.backgroundColor = UIColor.greenColor()
+		image.image = UIImage(data: contact.photo)?.imageWithColor(UIColor.whiteColor())
+		image.backgroundColor = UIColor.clearColor()
 		//map
 		map = MKMapView(frame: CGRectMake(20, 190, 255, 175))
 	

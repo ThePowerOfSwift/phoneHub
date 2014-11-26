@@ -68,8 +68,13 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		cell.memoLabel.text = theContact.memo
 		cell.phoneType.text = theContact.phoneType
 		cell.pic.image = UIImage(data: theContact.photo)
-		cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-		cell.accessoryType = .None
+		if indexPath.row % 2 == 0{
+			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
+			cell.accessoryType = .None
+		} else {
+			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.65)
+			cell.accessoryType = .None
+		}
 		return cell
 	}
 //End Table

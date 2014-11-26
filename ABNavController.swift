@@ -26,7 +26,7 @@ class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigati
 		if imgData != nil {
 			profilePic = UIImage(data:imgData!)
 		} else {
-			profilePic = UIImage(named: "contact iconNew")?.imageWithColor(UIColor.grayColor())
+			profilePic = UIImage(named: "contact iconNew")?.imageWithColor(UIColor.whiteColor())
 		}
 		let name = ABRecordCopyCompositeName(person).takeRetainedValue() as String
 		let phone = ABMultiValueCopyValueAtIndex(record,index).takeRetainedValue() as String
@@ -37,7 +37,7 @@ class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigati
 			name: name,
 			phone: phone,
 			phoneType: phoneType,
-			photo: UIImageJPEGRepresentation(profilePic, 1),
+			photo: UIImagePNGRepresentation(profilePic),
 			status: "newCall",
 			context: managedObjectContext
 		)

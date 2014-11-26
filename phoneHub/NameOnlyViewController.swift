@@ -43,7 +43,7 @@ class NameOnlyViewController: UIViewController {
 			let entityDescription = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: managedObjectContext)
 			let contact = Contacts(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
 			
-			contact.photo = UIImageJPEGRepresentation(image.image,1.0)
+			contact.photo = UIImagePNGRepresentation(image.image)
 			contact.name = nameLabel.text!
 			contact.memo = memo.text
 			contact.phone = phoneField.text!

@@ -117,6 +117,7 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let theContact = fetchedResultsController.objectAtIndexPath(indexPath) as Contacts
         cell = tableView.dequeueReusableCellWithIdentifier("listCell") as ContactCell
+		
 		cell.load(
 			theContact.name,
 			phoneType:theContact.phoneType,
@@ -126,9 +127,14 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			status: theContact.status,
 			created: theContact.created
 		)
-		cell.pic.image = UIImage(data: theContact.photo)?.imageWithRenderingMode(.AlwaysOriginal)
-		cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-		cell.accessoryType = .None
+		cell.pic.image = UIImage(data: theContact.photo)
+		if indexPath.row % 2 == 0{
+			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
+			cell.accessoryType = .None
+		} else {
+			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.65)
+			cell.accessoryType = .None
+		}
 		
 		return cell
     }
