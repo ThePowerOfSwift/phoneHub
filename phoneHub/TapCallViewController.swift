@@ -111,17 +111,18 @@ class TapCallViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 //		memoArea = UITextView(frame: CGRectMake(20, 325, 275, 175))
 		memoArea.backgroundColor = UIColor(netHex: 0xE5C49A)
 		
-		memoLine = customShadow(theself: self.view, frame: memoArea.frame)
 //		memoLabel.textColor = UIColor.whiteColor()
 //		memoArea.textColor = UIColor.whiteColor()
 		
 		memoArea.text = contact.memo
 		memoArea.delegate = self
+		
 		//addSubview
 		self.view.addSubview(image)
 		//		self.view.addSubview(map)
 		self.view.addSubview(memoLabel)
 		self.view.addSubview(memoArea)
+		memoLine = customShadow(theself: self.view, frame: memoArea.frame)
 
 		
 		self.view.addSubview(nameLabel)
