@@ -19,13 +19,13 @@ class TapCallViewController: BaseCallerViewController {
 		super.viewDidLoad()
 		
 		//nameLabel
-		nameLabel = UILabel(frame: CGRectMake(140, 70, 150, 50))
+		nameLabel = UILabel(frame: CGRectMake(140, 75, 150, 50))
 		nameLabel.text = contact.name
-		nameLabel.textColor = UIColor.whiteColor()
+//		nameLabel.textColor = UIColor.whiteColor()
 		//phoneLabel
-		phoneLabel = UILabel(frame: CGRectMake(140, 120, 150, 50))
+		phoneLabel = UILabel(frame: CGRectMake(140, 125, 150, 50))
 		phoneLabel.text = contact.phone
-		phoneLabel.textColor = UIColor.whiteColor()
+//		phoneLabel.textColor = UIColor.whiteColor()
 		//addSubview
 		self.view.addSubview(nameLabel)
 		self.view.addSubview(phoneLabel)

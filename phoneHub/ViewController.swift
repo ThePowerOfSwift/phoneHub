@@ -27,16 +27,15 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
-
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
 	
 		// set selected and unselected icons
 		var item:UITabBarItem = self.tabBarController?.tabBar.items?[0] as UITabBarItem
-		item.image = UIImage(named: "contact iconNew")?.imageWithRenderingMode(.AlwaysOriginal)
+		item.image = UIImage(named: "contact30-2")?.imageWithRenderingMode(.AlwaysOriginal)
 		var item1:UITabBarItem = self.tabBarController?.tabBar.items?[1] as UITabBarItem
-		item1.image = UIImage(named: "folderNew")?.imageWithRenderingMode(.AlwaysOriginal)
+		item1.image = UIImage(named: "foldericon")?.imageWithRenderingMode(.AlwaysOriginal)
 
 		for item in self.tabBarController?.tabBar.items as [UITabBarItem] {
 			if let image = item.image {

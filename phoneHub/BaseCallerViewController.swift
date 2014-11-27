@@ -30,7 +30,8 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = UIColor(netHex: 0x274A95)
+		self.navigationItem.title = "After Call"
+		self.view.backgroundColor = UIColor(netHex: 0xE5C49A)
 		self.navigationItem.hidesBackButton = true
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -38,10 +39,9 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		locationManager.startUpdatingLocation()
 
 		//dial out
-		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+//		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
 		contact.called = NSDate()
 
-		
 		//done Bar Button
 		doneBButton = UIBarButtonItem(title: "Done", style: .Bordered, target: self, action: "doneTapped:")
 		self.navigationItem.rightBarButtonItem = doneBButton
@@ -49,33 +49,38 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		//need to redo frame definitions
 		//image
 		image = UIImageView(frame: CGRectMake(20, 80, 100,100))
-		image.image = UIImage(data: contact.photo)?.imageWithColor(UIColor.whiteColor())
-		image.backgroundColor = UIColor.clearColor()
+		image.image = UIImage(data: contact.photo)
+		image.contentMode = .ScaleAspectFit
+		image.layer.cornerRadius = image.frame.size.width / 2
+		image.clipsToBounds = true
+		image.layer.borderColor = UIColor.whiteColor().CGColor
+		image.layer.borderWidth = 1
+		
 		//map
 		map = MKMapView(frame: CGRectMake(20, 190, 255, 175))
-	
+		
 		//status buttons
 		
 		//complete
-		completeButton = UIButton(frame: CGRectMake(20, 190, 150, 75))
+		completeButton = UIButton(frame: CGRectMake(10, 190, 150, 75))
 		completeButton.setTitle("Complete", forState: UIControlState.Normal)
 		completeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
 		completeButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
 		
 		//call button
-		callBackButton = UIButton(frame: CGRectMake(20, 250, 150, 75))
+		callBackButton = UIButton(frame: CGRectMake(10, 250, 150, 75))
 		callBackButton.setTitle("Call Back", forState: UIControlState.Normal)
 		callBackButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
 		callBackButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
 		
 		//leftMessageButton
-		leftMessageButton = UIButton(frame: CGRectMake(170, 190, 150, 75))
+		leftMessageButton = UIButton(frame: CGRectMake(160, 190, 150, 75))
 		leftMessageButton.setTitle("Left Message", forState: UIControlState.Normal)
 		leftMessageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
 		leftMessageButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
 
 		//textedInsteadButton
-		textedInsteadButton = UIButton(frame: CGRectMake(170, 250, 150, 75))
+		textedInsteadButton = UIButton(frame: CGRectMake(160, 250, 150, 75))
 		textedInsteadButton.setTitle("Texted Instead", forState: UIControlState.Normal)
 		textedInsteadButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
 		textedInsteadButton.addTarget(self, action: "status:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -86,20 +91,7 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		
 		//memo TextView
 		memoArea = UITextView(frame: CGRectMake(20, 325, 275, 175))
-		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
-		memoArea.layer.borderWidth = 2
-		memoArea.backgroundColor = UIColor(netHex: 0x274A95)
-		
-		//set label color
-		completeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		callBackButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		leftMessageButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		textedInsteadButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		
-		completeButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
-		callBackButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
-		leftMessageButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
-		textedInsteadButton.setTitleColor(UIColor(netHex: 0x274A95), forState: .Selected)
+		memoArea.backgroundColor = UIColor(netHex: 0xE5C49A)
 
 		
 		memoLabel.textColor = UIColor.whiteColor()
@@ -115,17 +107,17 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	}
 	
 	func status(sender: UIButton) {
-		completeButton.backgroundColor = UIColor(netHex: 0x274A95)
-		callBackButton.backgroundColor = UIColor(netHex: 0x274A95)
-		leftMessageButton.backgroundColor = UIColor(netHex: 0x274A95)
-		textedInsteadButton.backgroundColor = UIColor(netHex: 0x274A95)
+		completeButton.backgroundColor = UIColor(netHex: 0xE5C49A)
+		callBackButton.backgroundColor = UIColor(netHex: 0xE5C49A)
+		leftMessageButton.backgroundColor = UIColor(netHex: 0xE5C49A)
+		textedInsteadButton.backgroundColor = UIColor(netHex: 0xE5C49A)
 		completeButton.selected = false
 		callBackButton.selected = false
 		leftMessageButton.selected = false
 		textedInsteadButton.selected = false
 		
 		contact.status = sender.titleLabel!.text!
-		sender.backgroundColor = UIColor.whiteColor()
+		sender.backgroundColor = UIColor(netHex: 0xD7D7CF)
 		sender.selected = true
 	}
 
