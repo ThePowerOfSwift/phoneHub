@@ -26,7 +26,7 @@ class TapCallViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	var map: MKMapView!
 	var spacerView:UIView!
 	var doneBButton:UIBarButtonItem!
-	
+	var memoLine:customShadow!
 	@IBOutlet weak var completeButton:UIButton!
 	@IBOutlet weak var callBackButton:UIButton!
 	@IBOutlet weak var leftMessageButton:UIButton!
@@ -111,9 +111,9 @@ class TapCallViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 //		memoArea = UITextView(frame: CGRectMake(20, 325, 275, 175))
 		memoArea.backgroundColor = UIColor(netHex: 0xE5C49A)
 		
-		
-		memoLabel.textColor = UIColor.whiteColor()
-		memoArea.textColor = UIColor.whiteColor()
+		memoLine = customShadow(theself: self.view, frame: memoArea.frame)
+//		memoLabel.textColor = UIColor.whiteColor()
+//		memoArea.textColor = UIColor.whiteColor()
 		
 		memoArea.text = contact.memo
 		memoArea.delegate = self
@@ -144,14 +144,12 @@ class TapCallViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 	
 	func textViewDidBeginEditing(textView: UITextView) {
-		print("start")
 		textView.backgroundColor = UIColor(netHex: 0xD7D7CF)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
-		println("end")
 		textView.backgroundColor = UIColor(netHex: 0xE5C49A)
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
