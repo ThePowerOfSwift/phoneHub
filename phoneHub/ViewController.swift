@@ -23,14 +23,38 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	let colors = Colors(top: UIColor(netHex: 0xD7D7CF), bot: UIColor(netHex: 0xE5C49A))
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-	
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
-	
+		
+//		let frame = self.tabBarController?.tabBar.frame
+//		let tabH = frame?.size.height
+//		let tabW = frame?.size.width
+//
+//		var pdf = UIImageView(frame: CGRectMake(0, 0, tabW!, tabH! / 2))
+//		pdf.image = UIImage(named: "selectedBackTeal")
+//		var pngdata:NSData = UIImagePNGRepresentation(pdf.image)
+//		var pngimg = UIImageView(frame: CGRectMake(0, 0, tabW!,tabH!))
+//		pngimg.image = UIImage(data: pngdata)
+//		pngimg.contentMode = .ScaleAspectFit
+		
+//		println(tabH)
+//		println(tabW)
+//		var newSize:CGSize = CGSize(width: tabW!,height: tabH! / 2)
+//		let rect = CGRectMake(0,0, newSize.width, newSize.height)
+//		UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+//		UIImage(named: "selectedBackTeal")?.drawInRect(rect)
+//		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//		UIGraphicsEndImageContext()
+		
+//		UITabBar.appearance().selectionIndicatorImage = pngimg.image
+//		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex: 0x21ACBB)], forState:.Normal)
+//		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Selected)
+		
 		// set selected and unselected icons
 		var item:UITabBarItem = self.tabBarController?.tabBar.items?[0] as UITabBarItem
 		item.image = UIImage(named: "contact30-2")?.imageWithRenderingMode(.AlwaysOriginal)
