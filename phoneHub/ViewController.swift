@@ -76,10 +76,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
 			let vc: EditViewController = segue.destinationViewController as EditViewController
 			vc.contact = theContact
-		} else if segue.identifier == "edit" {
-			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
-			let vc: EditEntryViewController = segue.destinationViewController as EditEntryViewController
-			vc.contact = theContact
 		} else if segue.identifier == "directCall" {
 			let vc: PostDirectCallViewController = segue.destinationViewController as PostDirectCallViewController
 			vc.number = textFieldValue

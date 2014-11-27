@@ -53,7 +53,7 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 		
 		statusLabel.text = ArchCell.status
 //		statusLabel.textColor = UIColor.whiteColor()
-		
+	
 		
 		loadMap(ArchCell.latitude as CLLocationDegrees, long: ArchCell.longitude as CLLocationDegrees, map: map)
 		

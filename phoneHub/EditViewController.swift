@@ -34,7 +34,7 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		nameField.text = contact.name
 		nameField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		nameField.delegate = self
-//		nameField.font = UIFont(name: "Helvetica Neue-Light", size: 14)
+//		nameField.font = UIFont(name: "HelveticaNeue-Light", size: 14)
 		nameLine = customShadow(theself: self.view, frame: nameField.frame)
 		
 		phoneLabel.text = contact.phoneType
@@ -92,18 +92,6 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	}
 //End toggle box colors
 	
-    @IBAction func tappedDone(sender: UIBarButtonItem) {
-		contact.update(
-			nameField.text,
-			phone: numField.text!,
-			phoneType: contact.phoneType,
-			photo: contact.photo,
-			memo: memoArea.text,
-			status: contact.status
-		)
-		self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-	
 	// MARK: - Notifications
 	
 	func keyboardWillShowNotification(notification: NSNotification) {
@@ -113,7 +101,7 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	func keyboardWillHideNotification(notification: NSNotification) {
 		updateBottomLayoutConstraintWithNotification(notification)
 	}
-
+	
 	// MARK: - Private
 	
 	func updateBottomLayoutConstraintWithNotification(notification: NSNotification) {
@@ -141,5 +129,18 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		self.view.endEditing(true)
 	}
+
+    @IBAction func tappedDone(sender: UIBarButtonItem) {
+		contact.update(
+			nameField.text,
+			phone: numField.text!,
+			phoneType: contact.phoneType,
+			photo: contact.photo,
+			memo: memoArea.text,
+			status: contact.status
+		)
+		self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+	
 	
 }
