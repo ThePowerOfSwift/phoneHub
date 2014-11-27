@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import QuartzCore
 
 class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var nameField: UITextField!
@@ -23,30 +22,32 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	
 	let managedObjectContext:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	
+	var nameLine:customShadow!
+	var numLine:customShadow!
+	var memoLine:customShadow!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.title = "Edit"
 		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//		memoArea.layer.borderColor = (UIColor.whiteColor()).CGColor
-//		memoArea.layer.borderWidth = 2
 		
 		nameField.text = contact.name
 		nameField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		nameField.delegate = self
-//		nameField.layer.shadowOpacity = 1.0;
-//		nameField.layer.shadowRadius = 0.0;
-//		nameField.layer.shadowColor = UIColor.blueColor().CGColor;
-//		nameField.layer.shadowOffset = CGSizeMake(-1.0, 1.0);
+		nameLine = customShadow(theself: self.view, frame: nameField.frame)
 		
 		phoneLabel.text = contact.phoneType
 
 		numField.text = contact.phone
 		numField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		numField.delegate = self
+		numLine = customShadow(theself: self.view, frame: numField.frame)
+		
 		memoArea.text = contact.memo
 		memoArea.backgroundColor = UIColor(netHex: 0xE5C49A)
 		memoArea.delegate = self
-
+		memoLine = customShadow(theself: self.view, frame: memoArea.frame)
+		
 		userPic.image = UIImage(data: contact.photo)
 		userPic.contentMode = .ScaleAspectFit
 		userPic.layer.cornerRadius = userPic.frame.size.width / 2
@@ -55,16 +56,20 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		userPic.layer.borderWidth = 1
 	
 		view.backgroundColor = UIColor(netHex: 0xE5C49A)
+		
+		
+		
 //		refresh()
 	}
 	//UIColor(netHex: 0xE5C49A) is beige
 	//UIColor(netHex: 0xD7D7CF) is gray
-	func refresh() {
-		view.backgroundColor = UIColor.clearColor()
-		var backgroundLayer = colors.gl
-		backgroundLayer.frame = view.frame
-		view.layer.insertSublayer(backgroundLayer, atIndex: 0)
-	}
+//	func refresh() {
+//		view.backgroundColor = UIColor.clearColor()
+//		var backgroundLayer = colors.gl
+//		backgroundLayer.frame = view.frame
+//		view.layer.insertSublayer(backgroundLayer, setFailureResponse: 0)
+//	}
+	
 //Start toggle box colors
 	func textFieldDidBeginEditing(textField: UITextField) {
 		textField.backgroundColor = UIColor(netHex: 0xD7D7CF)
@@ -75,6 +80,7 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	}
 	
 	func textViewDidBeginEditing(textView: UITextView) {
+		
 		textView.backgroundColor = UIColor(netHex: 0xD7D7CF)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
@@ -124,9 +130,6 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		let frame = self.tabBarController?.tabBar.frame
 		let height = frame?.size.height
 		bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) - height! - 5
-		
-//		for some reason i have to break it up like above. sticking them together is gives a compile-time error bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) - self.tabBarController?.tabBar.frame.size.height
-		
 		
 		UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
 			self.view.layoutIfNeeded()

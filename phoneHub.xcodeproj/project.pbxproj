@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */; };
+		F6295A801A26B5AC00606FCE /* customShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6295A7F1A26B5AC00606FCE /* customShadow.swift */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
 		F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BAA1A07179E0027567B /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABNavController.swift; path = ../ABNavController.swift; sourceTree = "<group>"; };
+		F6295A7F1A26B5AC00606FCE /* customShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customShadow.swift; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C02BA51A07179E0027567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */,
 				F6CFBD971A1C2C2100A81CF8 /* Entry.swift */,
 				F6C02BAC1A07179E0027567B /* Main.storyboard */,
+				F6295A7F1A26B5AC00606FCE /* customShadow.swift */,
 				F6C02BCA1A0723800027567B /* ContactCell.swift */,
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
 				F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */,
@@ -286,6 +289,7 @@
 				F6DBC79F1A21A9CB007F71F6 /* fromLemonade.swift in Sources */,
 				F6E1F6B71A16BF8600349714 /* ArchiveViewController.swift in Sources */,
 				F6DBC7A51A22F622007F71F6 /* UIExtensions.swift in Sources */,
+				F6295A801A26B5AC00606FCE /* customShadow.swift in Sources */,
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
 				F6DBC7A91A23DF26007F71F6 /* EditEntryViewController.swift in Sources */,
