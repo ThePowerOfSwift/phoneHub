@@ -26,7 +26,6 @@ class customShadow {
 		theself.addSubview(imageView1)
 		let image1 = drawCustomImage(imageSize1)
 		imageView1.image = image1
-
 	}
 	
 	func drawCustomImage(size: CGSize) -> UIImage {

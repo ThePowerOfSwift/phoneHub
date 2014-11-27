@@ -133,7 +133,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		cell.pic.clipsToBounds = true
 		cell.pic.layer.borderColor = UIColor.whiteColor().CGColor
 		cell.pic.layer.borderWidth = 1
-
 		
 		if indexPath.row % 2 == 0{
 			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)

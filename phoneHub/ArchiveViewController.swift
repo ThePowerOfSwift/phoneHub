@@ -12,7 +12,7 @@ import QuartzCore
 
 class ArchiveViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate  {
 
-	let colors = Colors(top: UIColor.whiteColor(), bot: UIColor(netHex: 0x30A5FF))
+	let colors = Colors(top: UIColor(netHex: 0xD7D7CF), bot: UIColor(netHex: 0xE5C49A))
 	var tblView =  UIView(frame: CGRectZero)
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 	var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
@@ -25,16 +25,18 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 
 		refresh()
     }
+	
 	func refresh() {
 		tableView.backgroundColor = UIColor.clearColor()
 		var backgroundLayer = colors.gl
 		backgroundLayer.frame = tableView.frame
 		tableView.layer.insertSublayer(backgroundLayer, atIndex: 0)
 	}
+	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.tableFooterView = tblView
-		tableView.backgroundColor = UIColor(netHex: 0x30A5FF)
+		tableView.backgroundColor = UIColor(netHex: 0xE5C49A)
 	}
 
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
@@ -68,6 +70,12 @@ class ArchiveViewController: UITableViewController, UITableViewDataSource, UITab
 		cell.memoLabel.text = theContact.memo
 		cell.phoneType.text = theContact.phoneType
 		cell.pic.image = UIImage(data: theContact.photo)
+		cell.pic.contentMode = .ScaleAspectFit
+		cell.pic.layer.cornerRadius = cell.pic.frame.size.width / 2
+		cell.pic.clipsToBounds = true
+		cell.pic.layer.borderColor = UIColor.whiteColor().CGColor
+		cell.pic.layer.borderWidth = 1
+
 		if indexPath.row % 2 == 0{
 			cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
 			cell.accessoryType = .None
