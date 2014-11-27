@@ -31,27 +31,34 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 //		memoArea.layer.borderWidth = 2
 		
 		nameField.text = contact.name
-		nameField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		nameField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		nameField.delegate = self
 //		nameField.layer.shadowOpacity = 1.0;
 //		nameField.layer.shadowRadius = 0.0;
 //		nameField.layer.shadowColor = UIColor.blueColor().CGColor;
 //		nameField.layer.shadowOffset = CGSizeMake(-1.0, 1.0);
 		
-		
 		phoneLabel.text = contact.phoneType
 
 		numField.text = contact.phone
-		numField.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		numField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		numField.delegate = self
 		memoArea.text = contact.memo
-		memoArea.backgroundColor = UIColor(netHex: 0xD7D7CF)
+		memoArea.backgroundColor = UIColor(netHex: 0xE5C49A)
 		memoArea.delegate = self
+
 		userPic.image = UIImage(data: contact.photo)
+		userPic.contentMode = .ScaleAspectFit
+		userPic.layer.cornerRadius = userPic.frame.size.width / 2
+		userPic.clipsToBounds = true
+		userPic.layer.borderColor = UIColor.whiteColor().CGColor
+		userPic.layer.borderWidth = 1
+	
 		view.backgroundColor = UIColor(netHex: 0xE5C49A)
 //		refresh()
-    }
-	
+	}
+	//UIColor(netHex: 0xE5C49A) is beige
+	//UIColor(netHex: 0xD7D7CF) is gray
 	func refresh() {
 		view.backgroundColor = UIColor.clearColor()
 		var backgroundLayer = colors.gl
@@ -60,22 +67,21 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	}
 //Start toggle box colors
 	func textFieldDidBeginEditing(textField: UITextField) {
-		textField.backgroundColor = UIColor.greenColor()
+		textField.backgroundColor = UIColor(netHex: 0xD7D7CF)
 	}
 	
 	func textFieldDidEndEditing(textField: UITextField) {
-		textField.backgroundColor = UIColor.redColor()
+		textField.backgroundColor = UIColor(netHex: 0xE5C49A)
 	}
 	
 	func textViewDidBeginEditing(textView: UITextView) {
-		textView.backgroundColor = UIColor.greenColor()
-		
+		textView.backgroundColor = UIColor(netHex: 0xD7D7CF)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
-		textView.backgroundColor = UIColor.redColor()
+		textView.backgroundColor = UIColor(netHex: 0xE5C49A)
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
 	}
@@ -92,20 +98,6 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		)
 		self.navigationController?.popToRootViewControllerAnimated(true)
     }
-	
-// MARK: - Lifecycle
-	
-//	override func viewWillAppear(animated: Bool) {
-//		super.viewWillAppear(animated)
-//		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-//		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
-//	}
-//	
-//	override func viewWillDisappear(animated: Bool) {
-//		super.viewWillDisappear(animated)
-//		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-//		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-//	}
 	
 	// MARK: - Notifications
 	
@@ -128,7 +120,13 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as NSNumber).unsignedIntValue << 16
 		let animationCurve = UIViewAnimationOptions.init(UInt(rawAnimationCurve))
 		
-		bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame)
+		
+		let frame = self.tabBarController?.tabBar.frame
+		let height = frame?.size.height
+		bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) - height! - 5
+		
+//		for some reason i have to break it up like above. sticking them together is gives a compile-time error bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) - self.tabBarController?.tabBar.frame.size.height
+		
 		
 		UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
 			self.view.layoutIfNeeded()
@@ -138,10 +136,6 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 	
 	// MARK: - UITextViewDelegate
 	
-//	func textViewShouldReturn(textView: UITextView) -> Bool {
-//		textView.resignFirstResponder()
-//		return true
-//	}
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		self.view.endEditing(true)
 	}
