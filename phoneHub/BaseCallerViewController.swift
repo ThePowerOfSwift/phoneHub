@@ -17,7 +17,7 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 	var memoArea:UITextView!
 	var image = UIImageView()
 	var map: MKMapView!
-	
+	var spacerView:UIView!
 	var doneBButton:UIBarButtonItem!
 	
 	var completeButton:UIButton!
@@ -104,6 +104,20 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		self.view.addSubview(memoLabel)
 		self.view.addSubview(memoArea)
 
+//////Constraints
+		
+		spacerView = UIView(frame: CGRectMake(84, 518, 160, 6))
+		spacerView.alpha = 0
+		var spacertoview = NSLayoutConstraint(item: spacerView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: memoArea, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 8)
+		view.addConstraint(spacertoview)
+		
+		
+		
+		
+		
+		
+		
+//////
 	}
 	
 	func status(sender: UIButton) {
