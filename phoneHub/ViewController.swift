@@ -31,9 +31,9 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
 		
-//		let frame = self.tabBarController?.tabBar.frame
-//		let tabH = frame?.size.height
-//		let tabW = frame?.size.width
+		let frame = self.tabBarController?.tabBar.frame
+		let tabH = frame?.size.height
+		let tabW = frame?.size.width
 //
 //		var pdf = UIImageView(frame: CGRectMake(0, 0, tabW!, tabH! / 2))
 //		pdf.image = UIImage(named: "selectedBackTeal")
@@ -42,8 +42,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 //		pngimg.image = UIImage(data: pngdata)
 //		pngimg.contentMode = .ScaleAspectFit
 		
-//		println(tabH)
-//		println(tabW)
+		println(tabH)
+		println(tabW)
 //		var newSize:CGSize = CGSize(width: tabW!,height: tabH! / 2)
 //		let rect = CGRectMake(0,0, newSize.width, newSize.height)
 //		UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
