@@ -154,22 +154,18 @@
                                 <rect key="frame" x="20" y="80" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="hUW-gU-DoI"/>
+                                    <constraint firstAttribute="width" constant="100" id="k3M-FH-bC4"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="v0Q-BB-tJe" firstAttribute="top" secondItem="YKY-65-dns" secondAttribute="bottom" constant="-5" id="4ha-Zd-9Pp"/>
-                            <constraint firstItem="D09-ob-eKv" firstAttribute="top" secondItem="2cx-HO-fAg" secondAttribute="bottom" constant="33" id="WRX-5S-aWb"/>
-                            <constraint firstItem="2cx-HO-fAg" firstAttribute="leading" secondItem="b1F-zL-CfB" secondAttribute="leadingMargin" constant="4" id="WYJ-yT-6Jr"/>
-                            <constraint firstItem="D09-ob-eKv" firstAttribute="top" secondItem="ZOE-Uz-R2H" secondAttribute="bottom" constant="1" id="fD9-Fu-pdg"/>
-                            <constraint firstItem="v0Q-BB-tJe" firstAttribute="leading" secondItem="2cx-HO-fAg" secondAttribute="trailing" constant="24" id="hIV-2E-ufN"/>
-                            <constraint firstItem="OEc-qu-pph" firstAttribute="top" secondItem="ZKl-dm-Zzw" secondAttribute="bottom" constant="8" id="hTN-Z2-gKL"/>
-                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="D09-ob-eKv" secondAttribute="bottom" constant="42" id="mkX-jK-0Mn"/>
-                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="v0Q-BB-tJe" secondAttribute="bottom" constant="156" id="otE-LP-5Zg"/>
+                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="D09-ob-eKv" secondAttribute="bottom" constant="42" id="IkC-EP-6hY"/>
+                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="YKY-65-dns" secondAttribute="bottom" constant="181" id="T3j-VT-ujG"/>
+                            <constraint firstItem="OEc-qu-pph" firstAttribute="top" secondItem="ZKl-dm-Zzw" secondAttribute="bottom" constant="8" id="dt6-Lf-Vjd"/>
+                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="2cx-HO-fAg" secondAttribute="bottom" constant="105" id="isU-vj-8Mf"/>
+                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="qxW-S7-e5B" secondAttribute="bottom" constant="-5" id="opq-nC-LMJ"/>
                             <constraint firstItem="4ap-Bo-qii" firstAttribute="top" secondItem="OEc-qu-pph" secondAttribute="bottom" id="qam-1T-kHV"/>
-                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="qxW-S7-e5B" secondAttribute="bottom" constant="-5" id="qgF-VE-ckC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2cx-HO-fAg" secondAttribute="trailing" constant="184" id="rDw-Wm-vSF"/>
-                            <constraint firstItem="ZOE-Uz-R2H" firstAttribute="leading" secondItem="D09-ob-eKv" secondAttribute="leading" id="xTF-bH-uME"/>
+                            <constraint firstItem="ZKl-dm-Zzw" firstAttribute="top" secondItem="ZOE-Uz-R2H" secondAttribute="bottom" constant="73" id="xP6-fW-De5"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

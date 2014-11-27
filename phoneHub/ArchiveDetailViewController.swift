@@ -45,7 +45,7 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 		
 		calledTime.text = localDate
 //		calledTime.textColor = UIColor.whiteColor()
-		
+
 		memoArea.text = ArchCell.memo
 		memoArea.editable = false
 		memoArea.backgroundColor = UIColor(netHex: 0xD7D7CF)
