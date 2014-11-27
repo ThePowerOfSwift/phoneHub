@@ -15,7 +15,8 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var statusLabel: UILabel!
 	@IBOutlet weak var calledTime: UILabel!
-	@IBOutlet weak var memo: UILabel!
+	@IBOutlet weak var memoArea: UITextView!
+
 	@IBOutlet weak var map: MKMapView!
 	
 	var ArchCell:Contacts!
@@ -30,23 +31,33 @@ class ArchiveDetailViewController: UIViewController, MKMapViewDelegate, CLLocati
 		let localDate = dateFormatter.stringFromDate(ArchCell.called!)
 		
 		pic.image = UIImage(data: ArchCell.photo)
+		pic.contentMode = .ScaleAspectFit
+		pic.layer.cornerRadius = pic.frame.size.width / 2
+		pic.clipsToBounds = true
+		pic.layer.borderColor = UIColor.whiteColor().CGColor
+		pic.layer.borderWidth = 1
 		
 		nameLabel.text = ArchCell.name
-		nameLabel.textColor = UIColor.whiteColor()
+//		nameLabel.textColor = UIColor.whiteColor()
 		
 		phoneLabel.text = ArchCell.phone
-		phoneLabel.textColor = UIColor.whiteColor()
+//		phoneLabel.textColor = UIColor.whiteColor()
 		
 		calledTime.text = localDate
-		calledTime.textColor = UIColor.whiteColor()
+//		calledTime.textColor = UIColor.whiteColor()
 		
-		memo.text = ArchCell.memo
-		memo.textColor = UIColor.whiteColor()
+		memoArea.text = ArchCell.memo
+		memoArea.editable = false
+		memoArea.backgroundColor = UIColor(netHex: 0xD7D7CF)
+//		memo.textColor = UIColor.whiteColor()
 		
 		statusLabel.text = ArchCell.status
-		statusLabel.textColor = UIColor.whiteColor()
+//		statusLabel.textColor = UIColor.whiteColor()
+		
 		
 		loadMap(ArchCell.latitude as CLLocationDegrees, long: ArchCell.longitude as CLLocationDegrees, map: map)
+		
+		view.backgroundColor = UIColor(netHex: 0xE5C49A)
 	}
 	
 	func loadMap(lat: CLLocationDegrees, long: CLLocationDegrees, map: MKMapView){

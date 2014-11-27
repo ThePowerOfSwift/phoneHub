@@ -34,6 +34,7 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		nameField.text = contact.name
 		nameField.backgroundColor = UIColor(netHex: 0xE5C49A)
 		nameField.delegate = self
+//		nameField.font = UIFont(name: "Helvetica Neue-Light", size: 14)
 		nameLine = customShadow(theself: self.view, frame: nameField.frame)
 		
 		phoneLabel.text = contact.phoneType
@@ -56,8 +57,6 @@ class EditViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 		userPic.layer.borderWidth = 1
 	
 		view.backgroundColor = UIColor(netHex: 0xE5C49A)
-		
-		
 		
 //		refresh()
 	}
