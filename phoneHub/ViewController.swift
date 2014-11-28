@@ -17,7 +17,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	
 	var textFieldValue:String!
 	var cell: ContactCell!
-	var selected: Entry!
 	var targetRow: NSIndexPath!
 	let tblView =  UIView(frame: CGRectZero)
 	let colors = Colors(top: UIColor(netHex: 0xD7D7CF), bot: UIColor(netHex: 0xE5C49A))
@@ -214,8 +213,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
     @IBAction func tapPlus(sender: UIBarButtonItem) {
         if textField.text == "" {
 			let picker = ABNavController()
+//			picker.displayedProperties = [kABPersonPhoneProperty]
 			picker.peoplePickerDelegate = picker
 			presentViewController(picker, animated: true, completion: nil)
+
 		} else {
 			textFieldValue = textField.text
 			performSegueWithIdentifier("nameOnly", sender: self)

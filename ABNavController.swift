@@ -11,16 +11,19 @@ import AddressBookUI
 import CoreData
 
 class ABNavController:ABPeoplePickerNavigationController, ABPeoplePickerNavigationControllerDelegate{
-
+//	override func viewDidLoad() {
+//		self.displayedProperties = [kABPersonPhoneProperty]
+//	}
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-
+	
 	func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
 		//save AB record
+		
 		let index = ABMultiValueGetIndexForIdentifier(ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue(), identifier)
 		let record: AnyObject = ABRecordCopyValue(person, property).takeRetainedValue()
 		let label = ABMultiValueCopyLabelAtIndex(record, index).takeRetainedValue()
 		var profilePic:UIImage!
-		
+//		peoplePicker.displayedProperties = [kABPersonPhoneProperty]
 		//stage data for new contact entry
 		var imgData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)?.takeRetainedValue()
 		if imgData != nil {
