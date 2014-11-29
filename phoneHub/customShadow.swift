@@ -37,7 +37,7 @@ class customShadow {
 		let context = UIGraphicsGetCurrentContext()
 		
 		// Setup complete, do drawing here
-		CGContextSetStrokeColorWithColor(context, UIColor(netHex: 0xD7D7CF).CGColor)
+		CGContextSetStrokeColorWithColor(context, minorColor.CGColor)
 		CGContextSetLineWidth(context, 3.0)
 		CGContextStrokeRect(context, bounds)
 		

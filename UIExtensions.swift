@@ -6,9 +6,25 @@
 //  Copyright (c) 2014 Stanley Chiang. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
+//Site Wide Colors
+var teal:UIColor = UIColor(netHex: 0x21ACBB)
+var beige:UIColor = UIColor(netHex: 0xE5C49A)
+var grey:UIColor = UIColor(netHex: 0xD7D7CF)
+
+var mainColor:UIColor = teal
+var majorColor:UIColor = beige
+var minorColor:UIColor = grey
+
+//Site Wide Fonts
+var HelvNThin13:UIFont = UIFont(name: "HelveticaNeue-Thin", size: 13)!
+var HelvNLight20:UIFont = UIFont(name: "HelveticaNeue-Light", size: 20)!
+
+var minorFont:UIFont = HelvNThin13
+var majorFont:UIFont = HelvNLight20
+
+//allows definition of colors in hex--pulled off stackoverflow
 extension UIColor {
 	convenience init(red: Int, green: Int, blue: Int) {
 		assert(red >= 0 && red <= 255, "Invalid red component")
@@ -23,11 +39,18 @@ extension UIColor {
 	}
 }
 
-//need to learn how to add a color
-//extension UIColor {
-//	func myBlueColor() -> UIColor {return UIColor(netHex: 0x274A95)}
-//}
+//quicker way to define labels
+extension UILabel{
+	convenience init(frame: CGRect, text: String, color: UIColor, font: UIFont){
+		self.init()
+		self.frame = frame
+		self.text = text
+		self.textColor = color
+		self.font = font
+	}
+}
 
+//fills an image with a color--pulled off stackoverflow
 extension UIImage {
 	func imageWithColor(tintColor: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)

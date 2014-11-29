@@ -124,16 +124,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-dm-Zzw">
-                                <rect key="frame" x="20" y="291" width="275" height="225"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="58x-Bd-FmX"/>
-                                    <constraint firstAttribute="height" constant="225" id="6kR-EL-1EP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="D09-ob-eKv">
                                 <rect key="frame" x="20" y="219" width="200" height="30"/>
                                 <constraints>
@@ -144,7 +134,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-qu-pph" userLabel="Spacer View">
-                                <rect key="frame" x="84" y="524" width="160" height="6"/>
+                                <rect key="frame" x="84" y="518" width="160" height="6"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="nje-Rw-Zuw"/>
@@ -166,6 +156,16 @@
                                     <constraint firstAttribute="width" constant="100" id="k3M-FH-bC4"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-dm-Zzw">
+                                <rect key="frame" x="20" y="291" width="275" height="225"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="58x-Bd-FmX"/>
+                                    <constraint firstAttribute="height" constant="225" id="6kR-EL-1EP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="OEc-qu-pph" firstAttribute="leading" secondItem="b1F-zL-CfB" secondAttribute="leadingMargin" constant="68" id="B8k-So-Qz5"/>

@@ -13,13 +13,14 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-	
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		UINavigationBar.appearance().barTintColor = UIColor(netHex: 0x21ACBB)//0x30A5FF)//0x274A95)
+
+		UINavigationBar.appearance().barTintColor = mainColor
 		UINavigationBar.appearance().tintColor = UIColor.whiteColor()
 
 		UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedBackTeal")
-		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex: 0x21ACBB)], forState:.Normal)
+		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: mainColor], forState:.Normal)
 		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Selected)
 		UITabBarItemPositioning.Fill
 		application.statusBarStyle = .LightContent

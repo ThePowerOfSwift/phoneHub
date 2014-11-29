@@ -28,7 +28,6 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	@IBAction func gotoNewEdit(sender: AnyObject) {
 
 		let vc:NewEditViewController = UIStoryboard(name: "Edit", bundle: nil).instantiateInitialViewController() as NewEditViewController
-		vc.msg = "Yay"
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	

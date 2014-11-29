@@ -7,30 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
-class NewEditViewController: UIViewController {
-
-	var msg: String!
+class NewEditViewController: BaseDetailViewController {
+	
     override func viewDidLoad() {
-        super.viewDidLoad()
-		if msg != nil {println("passed the message \(msg)!!  :D")}
-        // Do any additional setup after loading the view.
-    }
+		super.viewDidLoad()
+		//title
+		self.navigationItem.title = "Edit"
+		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+		//done button
+		var done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneTapped:")
+		self.navigationItem.setRightBarButtonItem(done, animated: true)
+		
+		//set profile pic image
+		userPic.image = UIImage(named: "profpicPDFWhite")
+//		self.view.addSubview(userPic)
+		
+		
+	}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	func doneTapped(sender: UIBarButtonItem){
+		self.navigationController?.popToRootViewControllerAnimated(true)
+	}
 
 }

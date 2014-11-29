@@ -11,6 +11,7 @@
 		F6295A801A26B5AC00606FCE /* customShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6295A7F1A26B5AC00606FCE /* customShadow.swift */; };
 		F63CBE531A291F1F00F3052A /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63CBE521A291F1F00F3052A /* Edit.storyboard */; };
 		F63CBE571A2929E300F3052A /* NewEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CBE561A2929E300F3052A /* NewEditViewController.swift */; };
+		F63CBE591A29572100F3052A /* BaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CBE581A29572100F3052A /* BaseDetailViewController.swift */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
 		F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BAA1A07179E0027567B /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		F6295A7F1A26B5AC00606FCE /* customShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customShadow.swift; sourceTree = "<group>"; };
 		F63CBE521A291F1F00F3052A /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		F63CBE561A2929E300F3052A /* NewEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewEditViewController.swift; path = ../NewEditViewController.swift; sourceTree = "<group>"; };
+		F63CBE581A29572100F3052A /* BaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDetailViewController.swift; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C02BA51A07179E0027567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				F6E1F6C21A183FA300349714 /* AddressBookUI.framework */,
 				F6E1F6C01A183F9400349714 /* MapKit.framework */,
 				F6C02BA51A07179E0027567B /* AppDelegate.swift */,
+				F63CBE581A29572100F3052A /* BaseDetailViewController.swift */,
 				F63CBE551A2923DE00F3052A /* edit */,
 				F6218BB21A282F4D005F13A0 /* archive */,
 				F6218BB31A282FFD005F13A0 /* main List & AB */,
@@ -330,6 +333,7 @@
 				F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */,
 				F6E1F6AF1A15BC5D00349714 /* PostDirectCallViewController.swift in Sources */,
 				F6E1F6B31A15C8C100349714 /* NameOnlyViewController.swift in Sources */,
+				F63CBE591A29572100F3052A /* BaseDetailViewController.swift in Sources */,
 				F6E1F6D31A190E9700349714 /* Contacts.swift in Sources */,
 				F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */,
 				F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */,
