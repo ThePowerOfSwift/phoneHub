@@ -57,8 +57,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CUu-Eq-EBy">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ajx-Bq-t65">
+                            <connections>
+                                <action selector="gotoNewEdit:" destination="gZN-cZ-udX" id="tgV-fC-xlp"/>
+                            </connections>
+                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="Oe4-Ge-e4B">
-                            <rect key="frame" x="8" y="7" width="261.5" height="30"/>
+                            <rect key="frame" x="76" y="7" width="168.5" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -80,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukU-ul-pzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1186" y="-338"/>
+            <point key="canvasLocation" x="1229" y="-338"/>
         </scene>
         <!--edit-->
         <scene sceneID="Qhr-3M-QgT">

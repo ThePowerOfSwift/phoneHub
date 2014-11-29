@@ -23,6 +23,15 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
 
+	
+	
+	@IBAction func gotoNewEdit(sender: AnyObject) {
+
+		let vc:NewEditViewController = UIStoryboard(name: "Edit", bundle: nil).instantiateInitialViewController() as NewEditViewController
+		vc.msg = "Yay"
+		self.navigationController?.pushViewController(vc, animated: true)
+	}
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		textField.delegate = self
@@ -41,8 +50,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 //		pngimg.image = UIImage(data: pngdata)
 //		pngimg.contentMode = .ScaleAspectFit
 		
-		println(tabH)
-		println(tabW)
+//		println(tabH)
+//		println(tabW)
 //		var newSize:CGSize = CGSize(width: tabW!,height: tabH! / 2)
 //		let rect = CGRectMake(0,0, newSize.width, newSize.height)
 //		UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
@@ -111,6 +120,8 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 			let theContact = fetchedResultsController.objectAtIndexPath(targetRow!) as Contacts
 			let vc:TapCallViewController = segue.destinationViewController as TapCallViewController
 			vc.contact = theContact
+		} else if segue.identifier == "newEdit" {
+			
 		}
     }
 
@@ -210,10 +221,10 @@ class ViewController: UITableViewController, UITableViewDataSource, UITableViewD
 		}
     }
 
-    @IBAction func tapPlus(sender: UIBarButtonItem) {
+	@IBAction func tapPlus(sender: UIBarButtonItem) {
         if textField.text == "" {
 			let picker = ABNavController()
-//			picker.displayedProperties = [kABPersonPhoneProperty]
+//			picker.displayedProperties = [kABPersonPhoneProperty as AnyObject]
 			picker.peoplePickerDelegate = picker
 			presentViewController(picker, animated: true, completion: nil)
 

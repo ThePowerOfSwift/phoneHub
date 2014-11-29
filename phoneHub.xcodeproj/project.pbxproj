@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F61B97341A1D8C1E0000B8E8 /* ABNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */; };
 		F6295A801A26B5AC00606FCE /* customShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6295A7F1A26B5AC00606FCE /* customShadow.swift */; };
+		F63CBE531A291F1F00F3052A /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63CBE521A291F1F00F3052A /* Edit.storyboard */; };
+		F63CBE571A2929E300F3052A /* NewEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CBE561A2929E300F3052A /* NewEditViewController.swift */; };
 		F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA51A07179E0027567B /* AppDelegate.swift */; };
 		F6C02BA91A07179E0027567B /* phoneHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BA71A07179E0027567B /* phoneHub.xcdatamodeld */; };
 		F6C02BAB1A07179E0027567B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C02BAA1A07179E0027567B /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABNavController.swift; path = ../ABNavController.swift; sourceTree = "<group>"; };
 		F6295A7F1A26B5AC00606FCE /* customShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customShadow.swift; sourceTree = "<group>"; };
+		F63CBE521A291F1F00F3052A /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
+		F63CBE561A2929E300F3052A /* NewEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewEditViewController.swift; path = ../NewEditViewController.swift; sourceTree = "<group>"; };
 		F6C02BA01A07179E0027567B /* phoneHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phoneHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C02BA41A07179E0027567B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C02BA51A07179E0027567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,14 +110,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		F6218BB31A282FFD005F13A0 /* regList, AB & edit */ = {
+		F6218BB31A282FFD005F13A0 /* main List & AB */ = {
 			isa = PBXGroup;
 			children = (
+				F6C02BAC1A07179E0027567B /* Main.storyboard */,
 				F61B97331A1D8C1E0000B8E8 /* ABNavController.swift */,
 				F6C02BAA1A07179E0027567B /* ViewController.swift */,
-				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
 			);
-			name = "regList, AB & edit";
+			name = "main List & AB";
 			sourceTree = "<group>";
 		};
 		F6218BB41A283048005F13A0 /* customClasses, misc, etc */ = {
@@ -138,6 +142,16 @@
 				F6E1F6B21A15C8C100349714 /* NameOnlyViewController.swift */,
 			);
 			name = dialers;
+			sourceTree = "<group>";
+		};
+		F63CBE551A2923DE00F3052A /* edit */ = {
+			isa = PBXGroup;
+			children = (
+				F63CBE561A2929E300F3052A /* NewEditViewController.swift */,
+				F63CBE521A291F1F00F3052A /* Edit.storyboard */,
+				F6C02BCC1A0726D60027567B /* EditViewController.swift */,
+			);
+			name = edit;
 			sourceTree = "<group>";
 		};
 		F6C02B971A07179E0027567B = {
@@ -166,9 +180,9 @@
 				F6E1F6C21A183FA300349714 /* AddressBookUI.framework */,
 				F6E1F6C01A183F9400349714 /* MapKit.framework */,
 				F6C02BA51A07179E0027567B /* AppDelegate.swift */,
-				F6C02BAC1A07179E0027567B /* Main.storyboard */,
+				F63CBE551A2923DE00F3052A /* edit */,
 				F6218BB21A282F4D005F13A0 /* archive */,
-				F6218BB31A282FFD005F13A0 /* regList, AB & edit */,
+				F6218BB31A282FFD005F13A0 /* main List & AB */,
 				F6218BB51A283092005F13A0 /* dialers */,
 				F6218BB41A283048005F13A0 /* customClasses, misc, etc */,
 				F6C02BAF1A07179E0027567B /* Images.xcassets */,
@@ -285,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C02BAE1A07179E0027567B /* Main.storyboard in Resources */,
+				F63CBE531A291F1F00F3052A /* Edit.storyboard in Resources */,
 				F6C02BB01A07179E0027567B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +335,7 @@
 				F6C02BA61A07179E0027567B /* AppDelegate.swift in Sources */,
 				F6DBC79D1A2180BF007F71F6 /* TapCallViewController.swift in Sources */,
 				F6C02BCF1A0727170027567B /* PostCallViewController.swift in Sources */,
+				F63CBE571A2929E300F3052A /* NewEditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
