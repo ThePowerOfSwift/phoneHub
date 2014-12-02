@@ -7,7 +7,7 @@
         <!--edit controller-->
         <scene sceneID="oJh-I1-joA">
             <objects>
-                <viewController storyboardIdentifier="NewEditViewController" title="edit controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="653-bB-mrJ" customClass="NewEditViewController" customModule="phoneHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="edit controller" id="653-bB-mrJ" customClass="NewEditViewController" customModule="phoneHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CII-ga-aYP"/>
                         <viewControllerLayoutGuide type="bottom" id="jwm-OL-xsf"/>
@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5za-FB-Y9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="380"/>
+            <point key="canvasLocation" x="182" y="368"/>
         </scene>
     </scenes>
 </document>

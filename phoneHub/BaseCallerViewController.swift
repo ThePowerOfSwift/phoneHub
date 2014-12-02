@@ -39,7 +39,7 @@ class BaseCallerViewController: UIViewController, MKMapViewDelegate, CLLocationM
 		locationManager.startUpdatingLocation()
 
 		//dial out
-//		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
 		contact.called = NSDate()
 
 		//done Bar Button

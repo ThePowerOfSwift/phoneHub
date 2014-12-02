@@ -57,7 +57,9 @@ class TapCallViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		//addSubview
 		
 		//dial out
-				UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(contact.phone))")!)
+//		println("phone: \(contact.phone)")
+		var ph = contact.phone
+		UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(cleaner(ph))")!)
 		contact.called = NSDate()
 		
 		//done Bar Button
